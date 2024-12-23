@@ -16,7 +16,7 @@ import project_img_6 from '../assets/project_img_6.jpg'
 import profile_img_1 from '../assets/profile_img_1.png'
 import profile_img_2 from '../assets/profile_img_2.png'
 import profile_img_3 from '../assets/profile_img_3.png'
-import Invextech from '../assets/Invextech.svg'
+// import Invextech from '../assets/Invextech.svg'
 import invextech from '../assets/invextech.svg'
 import mono from '../assets/mono.svg'
 import logo_invextech from './logo-invextech.png'
@@ -49,7 +49,7 @@ export const assets = {
     project_img_4,
     left_arrow,
     right_arrow,
-    Invextech,
+    // Invextech,
     invextech,
     mono,
     logo_invextech,
