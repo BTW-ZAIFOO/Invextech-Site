@@ -9,7 +9,7 @@ import project_img_4 from '../assets/project_img_4.jpg';
 import invextech from '../assets/invextech.svg';
 import mono from '../assets/mono.svg';
 import logo_preview from '../assets/logo_preview.png';
-import whatsapp from '../assets/whatsApp.jpg';
+import whatsApp from '../assets/whatsApp.jpg';
 import development_img from '../assets/development_img.webp';
 import download from '../assets/download.jpeg';
 import images from '../assets/images.jpeg';
@@ -34,7 +34,7 @@ export const assets = {
     invextech,
     mono,
     logo_preview,
-    whatsapp,
+    whatsApp,
     development_img,
     download,
     images,
