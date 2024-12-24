@@ -5,7 +5,7 @@ const Company = () => {
     {
       name: "Mr. Abu-Bakar Waqas",
       role: "CEO",
-      image: "https://www.linkedin.com/in/abubakar-waqas-a25182199/overlay/photo/",
+      image: "https://www.linkedin.com/in/abubakar-waqas-a25182199/overlay/photo",
       bio: "A visionary leader driving innovation and growth at our company.",
       socials: {
         linkedin: "https://www.linkedin.com/in/abubakar-waqas-a25182199",
@@ -14,7 +14,7 @@ const Company = () => {
     {
       name: "Mr. Muhsan Sattar",
       role: "COO",
-      image: "https://www.linkedin.com/in/muhsan-sattar-b7b0801a4/overlay/photo/",
+      image: "https://www.linkedin.com/in/muhsan-sattar-b7b0801a4/overlay/photo",
       bio: "An operational expert ensuring seamless execution of our strategies.",
       socials: {
         linkedin: "https://www.linkedin.com/in/muhsan-sattar-b7b0801a4",
