@@ -62,7 +62,7 @@ const Home = () => {
       {/* Header Section */}
       <div
         className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative z-10"
-        style={{ backgroundImage: `url('https://media-hosting.imagekit.io//1846d578abee4164/header_img.jpeg?Expires=1735212322&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=BYaTT2sUNlcWO0Z2I2RizpTTNhD9kr2t~2S9a-bTBPh2Xo78WUHEOwwwkU7ZcvYCrTYamm23MOh0mX7sCFshbPXLQxQi0G0MqHGd9KmUdUzRG7KxaUlDrMMF0JxLrYY34ZIQIwm0JxD2Sy1SkAFCUbA7S8dII1w7wOLFqWOji2i1whcSFXhQ5F8us78n1RMPtCIdGchlMcnbEjt-XJa0Z-96b-6G6i8QPdxdjq5ZqfmkIkl-2Mi-ncWamFv8Xq6STelKl8zrAlkNWTAVGu8XV8~-oB3Fm4RxOoGwMfVjTQ2K6d7vCbXNtYk10RDgsMwEogJcbRIxU49sMh8cG7FeZQ__')` }}
+        style={{ backgroundImage: `url('./images/header_img.jpeg')` }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
