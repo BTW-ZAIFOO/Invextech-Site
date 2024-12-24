@@ -62,14 +62,14 @@ const Home = () => {
     <>
       {/* Header Section */}
       <div
-        className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative"
-        style={{ backgroundImage: `url('src/assets/header_img.jpeg')` }}
+        className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative z-10"
+        style={{ backgroundImage: `url('./images/header_img.jpeg')` }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
         <div className="container text-center mx-auto py-4 px-6 md:px-20 lg:px-32 text-gray-100 relative">
           <motion.h2
-            className="text-4xl sm:text-4xl md:text-6xl inline-block max-w-3xl font-bold pt-20"
+            className="text-4xl sm:text-4xl md:text-6xl inline-block max-w-3xl font-bold pt-20 z-0"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 1 }}
@@ -254,25 +254,18 @@ const Home = () => {
         {/* Centering the grid */}
         <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-6 text-center pb-8 mx-auto">
           {/* PORTFOLIO CARD */}
-          {[
-            { image: assets.download },
-            { image: assets.images },
-            { image: assets.images_1 },
-            { image: assets.development_img },
-            { image: assets.images_4 },
-            { image: assets.images_5 },
-          ].map((portfolio, index) => (
+          {[assets.download, assets.images, assets.images_1, assets.development_img, assets.images_4, assets.images_5].map((image, index) => (
             <div
               key={index}
               className="flex flex-col items-center border-2 border-slate-300 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white"
             >
               <img
-                src={portfolio.image}
+                src={image}
                 alt={`port-${index + 1}`}
                 className="w-full h-auto max-h-[150px] object-contain transition-all duration-300 transform hover:scale-105"
               />
               <h2 className="font-bold text-sm mt-4 text-center">
-                {portfolio.title}
+                Portfolio Item {index + 1}
               </h2>
             </div>
           ))}
