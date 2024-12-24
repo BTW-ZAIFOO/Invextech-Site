@@ -23,7 +23,7 @@ const Company = () => {
     {
       name: "Rimsha Maryam",
       role: "HR",
-      image: "",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGT_X83CRh2jFX9iojbv3ByMRcm4TDDAnIA&s",
       bio: "Passionate about building a positive and productive workplace culture.",
       socials: {
         linkedin: "https://www.linkedin.com/in/rimsha-maryam-0193b5208",
