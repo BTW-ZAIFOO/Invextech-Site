@@ -2,10 +2,6 @@ import logo from '../assets/logo.svg';
 import logo_dark from '../assets/logo_dark.svg';
 import cross_icon from '../assets/cross_icon.svg';
 import menu_icon from '../assets/menu_icon.svg';
-import project_img_1 from '../assets/project_img_1.jpg';
-import project_img_2 from '../assets/project_img_2.jpg';
-import project_img_3 from '../assets/project_img_3.jpg';
-import project_img_4 from '../assets/project_img_4.jpg';
 import invextech from '../assets/invextech.svg';
 import mono from '../assets/mono.svg';
 import logo_preview from '../assets/logo_preview.png';
@@ -27,10 +23,6 @@ export const assets = {
     logo_dark,
     cross_icon,
     menu_icon,
-    project_img_1,
-    project_img_2,
-    project_img_3,
-    project_img_4,
     invextech,
     mono,
     logo_preview,
