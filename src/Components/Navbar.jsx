@@ -20,11 +20,13 @@ const Navbar = () => {
     <div className="w-full top-0 left-0 absolute z-50">
       <div className="h-20 flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-white backdrop-blur-md shadow-md">
         {/* Logo */}
-        <img
-          src={assets.logo_preview}
-          alt="Logo"
-          className="w-32 sm:w-48 rounded-md drop-shadow-[0_5px_10px_rgba(0,0,0,0.1)]"
-        />
+        <NavLink to="/Home" className="flex items-center">
+          <img
+            src={assets.logo_preview}
+            alt="Logo"
+            className="w-32 sm:w-48 rounded-md drop-shadow-[0_5px_10px_rgba(0,0,0,0.1)]"
+          />
+        </NavLink>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-8 lg:gap-7 text-black text-base lg:text-base font-semibold">
@@ -72,11 +74,10 @@ const Navbar = () => {
 
         <NavLink
           to="/Career"
-          className={
-            ({ isActive }) =>
-              `md:block bg-sky-500 text-white px-4 lg:px-6 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition-all duration-300 
-               ${isActive ? "bg-slate-900 text-white" : ""} 
-                 text-sm md:text-base` // Add responsive text size here
+          className={({ isActive }) =>
+            `md:block bg-sky-500 text-white px-4 lg:px-6 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition-all duration-300 
+             ${isActive ? "bg-slate-900 text-white" : ""} 
+               text-sm md:text-base`
           }
         >
           Register / Career
