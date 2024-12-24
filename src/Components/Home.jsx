@@ -63,7 +63,7 @@ const Home = () => {
       {/* Header Section */}
       <div
         className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative"
-        style={{ backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Py-Xeq_4YTANl7XDQctyxLh3pp30bw9OB3xcsvsFwaDbtBMS_k_kZawe5i-yS252wf0&usqp=CAU')` }}
+        style={{ backgroundImage: `url('/assets/header_img.jpeg')` }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
