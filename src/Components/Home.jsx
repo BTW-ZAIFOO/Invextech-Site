@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import assets from "../assets/assets";
 import { Link } from "react-router-dom";
-
 const solutions = [
   { slug: "midsize", image: assets.download, title: "MIDSIZE" },
   { slug: "startup", image: assets.images, title: "STARTUP" },
@@ -63,7 +62,7 @@ const Home = () => {
       {/* Header Section */}
       <div
         className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative z-10"
-        style={{ backgroundImage: `url('./images/header_img.jpeg')` }}
+        style={{ backgroundImage: `url('https://media-hosting.imagekit.io//1846d578abee4164/header_img.jpeg?Expires=1735212322&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=BYaTT2sUNlcWO0Z2I2RizpTTNhD9kr2t~2S9a-bTBPh2Xo78WUHEOwwwkU7ZcvYCrTYamm23MOh0mX7sCFshbPXLQxQi0G0MqHGd9KmUdUzRG7KxaUlDrMMF0JxLrYY34ZIQIwm0JxD2Sy1SkAFCUbA7S8dII1w7wOLFqWOji2i1whcSFXhQ5F8us78n1RMPtCIdGchlMcnbEjt-XJa0Z-96b-6G6i8QPdxdjq5ZqfmkIkl-2Mi-ncWamFv8Xq6STelKl8zrAlkNWTAVGu8XV8~-oB3Fm4RxOoGwMfVjTQ2K6d7vCbXNtYk10RDgsMwEogJcbRIxU49sMh8cG7FeZQ__')` }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
@@ -254,7 +253,14 @@ const Home = () => {
         {/* Centering the grid */}
         <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-6 text-center pb-8 mx-auto">
           {/* PORTFOLIO CARD */}
-          {[assets.download, assets.images, assets.images_1, assets.development_img, assets.images_4, assets.images_5].map((image, index) => (
+          {[
+            assets.download,
+            assets.images,
+            assets.images_1,
+            assets.development_img,
+            assets.images_4,
+            assets.images_5,
+          ].map((image, index) => (
             <div
               key={index}
               className="flex flex-col items-center border-2 border-slate-300 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white"
