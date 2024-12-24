@@ -27,7 +27,7 @@ export function Footer() {
             {/* Left section with logo */}
             <div className="w-full flex justify-center items-center">
               <img
-                src={assets.logo_invextech}
+                src={assets.logo_preview}
                 alt="Company Logo"
                 className="m-4 mx-auto object-center bg-white p-3"
               />
