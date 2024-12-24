@@ -63,7 +63,7 @@ const Home = () => {
       {/* Header Section */}
       <div
         className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative"
-        style={{ backgroundImage: `url('/src/assets/WhatsApp_img.jpg')` }}
+        style={{ backgroundImage: `url(https://images.unsplash.com/photo-1618022325802-7e5e732d97a1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww)` }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
