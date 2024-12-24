@@ -29,8 +29,8 @@ export function Footer() {
               <img
                 src={assets.logo_preview}
                 alt="Company Logo"
-                className="m-4 mx-auto object-center bg-white p-3"
-              />
+                className="object-center w-72 bg-white rounded-lg shadow-lg p-1 m-4"
+              /> 
             </div>
 
             {/* Contact Info Section */}
