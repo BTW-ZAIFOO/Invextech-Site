@@ -9,6 +9,7 @@ import { Footer } from "./Components/Footer.jsx";
 import Navbar from "./Components/Navbar.jsx";
 import ProjectDetail from "./Components/ProjectDetail.jsx";
 import SolutionDetail from "./Components/SolutionDetail.jsx";
+import Fixedcontent from "./Components/Fixedcontent.jsx";
 
 export const App = () => {
   return (
@@ -24,6 +25,7 @@ export const App = () => {
           <Route path="/company" element={<Company />} />
           <Route path="/career" element={<Register />} />
         </Routes>
+        <Fixedcontent />
         <Footer />
       </div>
     </Router>
