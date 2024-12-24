@@ -19,8 +19,8 @@ import images_3 from '../assets/images_3.png';
 import images_4 from '../assets/images_4.jpeg';
 import images_5 from '../assets/images_5.png';
 import images_6 from '../assets/images_6.jpeg';
-import ceo from '../assets/ceo_img.jpeg'; 
-import coo from '../assets/coo_img.jpeg'; 
+import ceo from '../assets/Ceo.jpeg'; 
+import coo from '../assets/Coo.jpeg'; 
 
 export const assets = {
     logo,
