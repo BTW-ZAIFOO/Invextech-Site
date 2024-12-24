@@ -270,9 +270,7 @@ const Home = () => {
                 alt={`port-${index + 1}`}
                 className="w-full h-auto max-h-[150px] object-contain transition-all duration-300 transform hover:scale-105"
               />
-              <h2 className="font-bold text-sm mt-4 text-center">
-                Portfolio Item {index + 1}
-              </h2>
+              
             </div>
           ))}
         </div>
