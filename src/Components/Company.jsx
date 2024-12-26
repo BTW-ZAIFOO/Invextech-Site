@@ -5,7 +5,7 @@ const Company = () => {
     {
       name: "Mr. Abu-Bakar Waqas",
       role: "CEO",
-      image: "https://media-hosting.imagekit.io//c7f673ad3f6c4e16/Ceo_img.jpeg?Expires=1735212448&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=nmRQM-svi2ta52EiTqj7Gl4hCsoYYkbiVZesCqQg~GEGsaCg2njGecvZJnEC2~L77YTPWsWkY26JiMweug9dd6xaAhJee3yEBQfS-YQhWpCmcMc~obp8EMARnnitHLqPp6GymR~FU5nBY4x5hSOLWWTN4JsXk~vpMDKhT8jAHRbfdrhidtQiTqfI~nU1KA9rAh3L~0E76H6HtDVhdgMrgxz1pRJocsFaCw87rAy40UL2gIvKWWpF~OKV2IqF-8IhU4LW1WVE11s5UmDpdZG58FlkhKYbHknCnOVnB2BXXp63764jlHtsRk~P1pq~ixVhWGCnJ2HwrRPVjZnAlas~Sg__",
+      image: "https://ik.imagekit.io/HuzaifaKhan/Ceo_img.jpeg?updatedAt=1735196105527",
       bio: "A visionary leader driving innovation and growth at our company.",
       socials: {
         linkedin: "https://www.linkedin.com/in/abubakar-waqas-a25182199",
@@ -14,7 +14,7 @@ const Company = () => {
     {
       name: "Mr. Muhsan Sattar",
       role: "COO",
-      image: "https://media-hosting.imagekit.io//c52bcaf32c7e485a/Coo_img.jpeg?Expires=1735212448&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=GKgvm3sqndBy3xK0kkFHqXV6ckViDuY0uPOgoYKYfRtOEaGpuamspgrwOskOGY~NPvs7Em4aHqi1BADmnoVAG-Cy07tLe7FxhoUNDhBOCSpnGmTqAUreFlBLq1quUSCaWmdaJkF88T9sO1y98nf1UgnUT56cst4Er2PrJwXe4QEoZNFe4qWRLSpR~lAyYW80-yhSEE-NRXR-gcwufLWDsjl4dAkjS7L-zPigSmFBlScoyrMByUgvRgHW11-MGfEVJqiymNAfXKeBf3JmLuZx5tzCo~sM87NYfzg~iCA~H0V9ByIF8nsr-6oHBm3Odf5QnVHXrNH14HJikwGZYojIvQ__",
+      image: "https://ik.imagekit.io/HuzaifaKhan/Coo_img.jpeg?updatedAt=1735196105613",
       bio: "An operational expert ensuring seamless execution of our strategies.",
       socials: {
         linkedin: "https://www.linkedin.com/in/muhsan-sattar-b7b0801a4",
