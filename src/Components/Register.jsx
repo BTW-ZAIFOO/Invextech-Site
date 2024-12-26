@@ -7,8 +7,6 @@ function CareerForm() {
     phone: "",
     linkedin: "",
     resume: null,
-    picture: null,
-    cnic: null,
     position: "",
     gender: "",
     skills: [],
@@ -139,7 +137,233 @@ function CareerForm() {
     "IoT",
     "Edge Computing",
     "5G",
-  ];  
+    "HTML5",
+    "CSS3",
+    "JavaScript (ES6+)",
+    "React.js",
+    "Vue.js",
+    "SASS",
+    "Webpack",
+    "Babel",
+    "JQuery",
+    "AJAX",
+    "Responsive Design",
+    "Cross-browser Compatibility",
+    "Mobile-first Design",
+    "CSS Grid",
+    "Flexbox",
+    "SVG",
+    "Canvas",
+    "Progressive Web Apps",
+    "Service Workers",
+    "SEO for Frontend",
+    "Figma",
+    "Sketch",
+    "Tailwind CSS",
+    "Bootstrap",
+    "Node.js",
+    "Express.js",
+    "PHP",
+    "Java",
+    "Ruby on Rails",
+    "Python",
+    "Go",
+    "C#",
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL",
+    "Redis",
+    "REST APIs",
+    "GraphQL",
+    "OAuth",
+    "JWT Authentication",
+    "Microservices Architecture",
+    "WebSocket",
+    "Docker",
+    "Kubernetes",
+    "AWS Lambda",
+    "Azure Functions",
+    "Serverless",
+    "CI/CD",
+    "Jenkins",
+    "Node.js",
+    "React.js",
+    "Express.js",
+    "MongoDB",
+    "SQL",
+    "AWS",
+    "Git",
+    "Docker",
+    "CI/CD",
+    "GraphQL",
+    "TypeScript",
+    "Jest",
+    "Redux",
+    "Web APIs",
+    "Algorithms & Data Structures",
+    "Design Patterns",
+    "System Design",
+    "Testing (Unit, Integration)",
+    "Continuous Integration",
+    "Version Control (Git)",
+    "Agile Methodologies",
+    "DevOps",
+    "Cloud Platforms (AWS, GCP, Azure)",
+    "Docker",
+    "Kubernetes",
+    "Linux",
+    "Networking Protocols",
+    "Microservices",
+    "Concurrency",
+    "MongoDB",
+    "Express.js",
+    "React.js",
+    "Node.js",
+    "JavaScript",
+    "TypeScript",
+    "JWT Authentication",
+    "GraphQL",
+    "Redux",
+    "REST APIs",
+    "Docker",
+    "Git",
+    "Postman",
+    "Jest",
+    "Sales Strategy",
+    "Client Relations",
+    "Market Research",
+    "Lead Generation",
+    "Negotiation",
+    "CRM Tools",
+    "Salesforce",
+    "Business Analysis",
+    "Revenue Forecasting",
+    "B2B Sales",
+    "Partnership Development",
+    "Presentation Skills",
+    "Project Management",
+    "Networking",
+    "Communication Skills",
+    "PHP",
+    "WordPress",
+    "MySQL",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "REST API",
+    "WooCommerce",
+    "SEO",
+    "Elementor",
+    "Theme Development",
+    "Plugin Development",
+    "WP-CLI",
+    "Git",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Adobe InDesign",
+    "CorelDRAW",
+    "Sketch",
+    "Figma",
+    "Typography",
+    "UI/UX Design",
+    "Logo Design",
+    "Branding",
+    "Print Design",
+    "Packaging Design",
+    "Color Theory",
+    "Wireframing",
+    "Prototyping",
+    "Motion Graphics",
+    "After Effects",
+    "Lead Generation",
+    "B2B Lead Generation",
+    "CRM Software",
+    "LinkedIn Marketing",
+    "Cold Calling",
+    "Email Marketing",
+    "SEO",
+    "Google Ads",
+    "Market Research",
+    "Conversion Rate Optimization",
+    "Lead Scoring",
+    "Sales Funnel Optimization",
+    "Salesforce",
+    "Wireframing",
+    "Prototyping",
+    "User Research",
+    "Figma",
+    "Sketch",
+    "InVision",
+    "Adobe XD",
+    "UX/UI Design",
+    "Usability Testing",
+    "Interaction Design",
+    "Responsive Design",
+    "User Flows",
+    "Persona Development",
+    "Agile",
+    "Design Systems",
+    "Information Architecture",
+    "Project Management",
+    "Agile",
+    "Scrum",
+    "Kanban",
+    "Jira",
+    "Trello",
+    "Asana",
+    "Risk Management",
+    "Budget Management",
+    "Time Management",
+    "Stakeholder Management",
+    "Team Collaboration",
+    "Communication Skills",
+    "Leadership",
+    "Resource Allocation",
+    "Process Improvement",
+    "Android",
+    "iOS",
+    "React Native",
+    "Flutter",
+    "Swift",
+    "Kotlin",
+    "Xcode",
+    "Android Studio",
+    "Firebase",
+    "App Store Optimization",
+    "API Integration",
+    "UX/UI Design",
+    "MVVM",
+    "Object-Oriented Programming",
+    "JUnit",
+    "Test-Driven Development",
+    "Material Design",
+    "Figma",
+    "SEO Strategy",
+    "Google Analytics",
+    "Keyword Research",
+    "Backlink Building",
+    "Technical SEO",
+    "On-page SEO",
+    "Off-page SEO",
+    "Local SEO",
+    "SEO Tools (SEMrush, Ahrefs, Moz)",
+    "Google Search Console",
+    "Content Marketing",
+    "Link Building",
+    "SEO Audits",
+    "Meta Tags",
+    "Conversion Optimization",
+  ];
+
+  const qualificationOptions = [
+    "Matriculation",
+    "Intermediate/FSc/A-Levels",
+    "Diploma",
+    "Bachelor's Degree",
+    "Master's Degree",
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -188,6 +412,20 @@ function CareerForm() {
     });
   };
 
+  const handleSkillKeyDown = (e) => {
+    if (e.key === "Enter" && skillInput.trim() !== "") {
+      if (!formData.skills.includes(skillInput.trim())) {
+        setFormData({
+          ...formData,
+          skills: [...formData.skills, skillInput.trim()],
+        });
+      }
+      setSkillInput("");
+      setSkillsSuggestions([]);
+      e.preventDefault();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -210,7 +448,8 @@ function CareerForm() {
     if (!formData.phone) {
       validationErrors.phone = "Phone Number is required.";
     } else if (!/^[\d+\-]+$/.test(formData.phone)) {
-      validationErrors.phone = "Phone number should only contain numbers, + and - symbols.";
+      validationErrors.phone =
+        "Phone number should only contain numbers, + and - symbols.";
     }
 
     if (!formData.position) {
@@ -222,7 +461,8 @@ function CareerForm() {
     }
 
     if (!formData.highestQualification) {
-      validationErrors.highestQualification = "Highest Qualification is required.";
+      validationErrors.highestQualification =
+        "Highest Qualification is required.";
     }
 
     if (Object.keys(validationErrors).length > 0) {
@@ -236,8 +476,6 @@ function CareerForm() {
       phone: formData.phone,
       linkedin: formData.linkedin,
       resume: formData.resume,
-      picture: formData.picture,
-      cnic: formData.cnic,
       position: formData.position,
       gender: formData.gender,
       skills: formData.skills,
@@ -427,72 +665,84 @@ function CareerForm() {
                       value={formData.linkedin}
                       onChange={handleChange}
                       className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                      placeholder="Enter LinkedIn profile URL"
-                      required
+                      placeholder="Enter your LinkedIn profile link"
                       disabled={isSubmitted}
                     />
-                    {errors.linkedin && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.linkedin}
-                      </p>
-                    )}
                   </div>
+                </div>
 
-                  {/* Position */}
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Position Applying For
-                    </label>
-                    <select
-                      name="position"
-                      value={formData.position}
-                      onChange={handleChange}
-                      className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                      required
-                      disabled={isSubmitted}
-                    >
-                      <option value="" disabled>
-                        Select Position
+                {/* Position */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Position
+                  </label>
+                  <select
+                    name="position"
+                    value={formData.position}
+                    onChange={handleChange}
+                    className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
+                    required
+                    disabled={isSubmitted}
+                  >
+                    <option value="">Select Position</option>
+                    {positionOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
                       </option>
-                      {positionOptions.map((position) => (
-                        <option key={position} value={position}>
-                          {position}
-                        </option>
-                      ))}
-                    </select>
-                    {errors.position && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.position}
-                      </p>
-                    )}
-                  </div>
+                    ))}
+                  </select>
+                  {errors.position && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.position}
+                    </p>
+                  )}
+                </div>
 
-                  {/* Gender */}
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Gender
-                    </label>
-                    <select
-                      name="gender"
-                      value={formData.gender}
-                      onChange={handleChange}
-                      className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                      required
-                      disabled={isSubmitted}
-                    >
-                      <option value="" disabled>
-                        Select Gender
+                {/* Gender */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Gender
+                  </label>
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
+                    required
+                    disabled={isSubmitted}
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                {/* Qualification */}
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Highest Qualification
+                  </label>
+                  <select
+                    name="highestQualification"
+                    value={formData.highestQualification}
+                    onChange={handleChange}
+                    className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
+                    required
+                    disabled={isSubmitted}
+                  >
+                    <option value="">Select Qualification</option>
+                    {qualificationOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
                       </option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    {errors.gender && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.gender}
-                      </p>
-                    )}
-                  </div>
+                    ))}
+                  </select>
+                  {errors.highestQualification && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.highestQualification}
+                    </p>
+                  )}
                 </div>
 
                 {/* Skills */}
@@ -505,113 +755,70 @@ function CareerForm() {
                     name="skills"
                     value={skillInput}
                     onChange={handleChange}
+                    onKeyDown={handleSkillKeyDown}
                     className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                    placeholder="List your skills and technologies"
+                    placeholder="Enter skill or technology"
                     disabled={isSubmitted}
                   />
-                  {skillsSuggestions.length > 0 && (
-                    <ul className="absolute bg-white border border-gray-300 rounded-md shadow-md mt-2 max-h-40 overflow-y-auto z-10">
-                      {skillsSuggestions.map((skill) => (
-                        <li
+                  {errors.skills && (
+                    <p className="text-red-500 text-sm mt-1">{errors.skills}</p>
+                  )}
+                  <div>
+                    {skillsSuggestions.slice(0, 4).map(
+                      (
+                        skill // Limit the number of suggestions displayed
+                      ) => (
+                        <div
                           key={skill}
-                          className="px-4 py-2 hover:bg-gray-200 cursor-pointer flex justify-between items-center"
                           onClick={() => handleSkillClick(skill)}
+                          className="cursor-pointer p-2 hover:bg-gray-200"
                         >
                           {skill}
-                          <button
-                            className="ml-2 text-red-500 hover:text-red-700"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleSkillDelete(skill);
-                            }}
-                          >
-                            &times;
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <div className="flex flex-wrap mt-2">
+                        </div>
+                      )
+                    )}
+                  </div>
+                  <div className="mt-3">
                     {formData.skills.map((skill) => (
-                      <div
+                      <span
                         key={skill}
-                        className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full flex items-center mr-2 mb-2"
+                        className="bg-sky-200 text-slate-950 p-2 rounded-full text-sm inline-block mr-2 mb-2 font-medium"
                       >
                         {skill}
-                        <button
-                          className="ml-2 text-red-500 hover:text-red-700"
+                        <span
+                          className="ml-2 cursor-pointer"
                           onClick={() => handleSkillDelete(skill)}
                         >
-                          &times;
-                        </button>
-                      </div>
+                          &#10005;
+                        </span>
+                      </span>
                     ))}
                   </div>
-                  {errors.skills && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.skills}
-                    </p>
-                  )}
                 </div>
 
-                {/* Highest Qualification */}
+                {/* Resume */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Highest Qualification
+                    Upload Resume
                   </label>
                   <input
-                    type="text"
-                    name="highestQualification"
-                    value={formData.highestQualification}
-                    onChange={handleChange}
-                    className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                    placeholder="Enter your highest qualification"
-                    required
+                    type="file"
+                    name="resume"
+                    onChange={handleFileChange}
+                    className="w-full p-2"
                     disabled={isSubmitted}
+                    accept=".pdf, .doc, .docx"
                   />
-                  {errors.highestQualification && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.highestQualification}
-                    </p>
-                  )}
-                </div>
-
-                {/* File Upload Fields */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">
-                      Upload CV/Resume
-                    </label>
-                    <input
-                      type="file"
-                      name="resume"
-                      onChange={handleFileChange}
-                      className="w-full text-gray-600"
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      required
-                      disabled={isSubmitted}
-                    />
-                    {formData.resume && (
-                      <span className="text-gray-500 text-sm mt-2 block">
-                        {formData.resume.name}
-                      </span>
-                    )}
-                    {errors.resume && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.resume}
-                      </p>
-                    )}
-                  </div>
                 </div>
 
                 {/* Submit Button */}
-                <div className="flex justify-center mt-8">
+                <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="px-6 py-3 mt-6 bg-blue-500 text-white font-bold rounded-md shadow-md hover:bg-blue-600 focus:outline-none"
+                    className="mt-4 p-4 bg-sky-500 text-white font-bold py-3 rounded-md shadow-md hover:bg-sky-600 focus:outline-none"
                     disabled={isSubmitted}
                   >
-                    {isSubmitted ? "Submitting..." : "Submit Your Application"}
+                    Submit Application
                   </button>
                 </div>
               </form>

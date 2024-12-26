@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import assets from "../assets/assets";
 
 const projects = [
@@ -14,6 +14,33 @@ const projects = [
 ];
 
 function CompletedProjects() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Restore scroll position on component mount
+    const savedPosition = sessionStorage.getItem("scrollPosition");
+    if (savedPosition) {
+      window.scrollTo(0, savedPosition);
+    }
+
+    // Save scroll position when navigating away
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      sessionStorage.setItem("scrollPosition", window.scrollY); // Save scroll on component unmount
+    };
+  }, []);
+
+  const handleProjectClick = (slug) => {
+    // Save the current scroll position before navigating
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+    navigate(`/projects/${slug}`);
+  };
+
   return (
     <div className="max-w-[1120px] mx-auto mt-16 py-10 sm:px-6 lg:px-8">
       <div className="text-center items-center mb-12">

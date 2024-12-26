@@ -46,7 +46,16 @@ function SolutionDetail() {
   const solution = solutions[solutionIndex];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Restore scroll position when the component mounts
+    const savedPosition = sessionStorage.getItem("scrollPosition");
+    if (savedPosition) {
+      window.scrollTo(0, savedPosition);
+    }
+
+    // Cleanup when navigating away to save the scroll position
+    return () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    };
   }, [slug]);
 
   if (!solution) {
@@ -66,6 +75,8 @@ function SolutionDetail() {
   };
 
   const handleClose = () => {
+    // Save the current scroll position when closing
+    sessionStorage.setItem("scrollPosition", window.scrollY);
     navigate("/Home");
   };
 
