@@ -62,7 +62,9 @@ const Home = () => {
       {/* Header Section */}
       <div
         className="min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden relative z-10"
-        style={{ backgroundImage: `url('https://ik.imagekit.io/HuzaifaKhan/header_img.jpeg?updatedAt=1735196106351')` }}
+        style={{
+          backgroundImage: `url('https://ik.imagekit.io/HuzaifaKhan/header_img.jpeg?updatedAt=1735196106351')`,
+        }}
         id="Header"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-900 opacity-80"></div>
@@ -194,7 +196,7 @@ const Home = () => {
 
       {/* Solutions Section */}
       <div className="max-w-[1120px] mx-auto mt-16 py-10 sm:px-6 lg:px-8">
-        <div className="text-center items-center mb-12">
+        <div id="solutions" className="text-center items-center mb-12">
           <h2 className="text-center text-3xl md:text-4xl font-extralight text-black mb-4">
             <span className="text-sky-500 border-b-4 border-sky-500 font-extrabold">
               SOLUTIONS
@@ -270,7 +272,6 @@ const Home = () => {
                 alt={`port-${index + 1}`}
                 className="w-full h-auto max-h-[150px] object-contain transition-all duration-300 transform hover:scale-105"
               />
-              
             </div>
           ))}
         </div>

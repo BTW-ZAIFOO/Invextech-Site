@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const solutions = [
   {
@@ -46,17 +47,14 @@ function SolutionDetail() {
   const solution = solutions[solutionIndex];
 
   useEffect(() => {
-    // Restore scroll position when the component mounts
-    const savedPosition = sessionStorage.getItem("scrollPosition");
-    if (savedPosition) {
-      window.scrollTo(0, savedPosition);
-    }
-
-    // Cleanup when navigating away to save the scroll position
-    return () => {
-      sessionStorage.setItem("scrollPosition", window.scrollY);
-    };
+    // Scroll to the top of the page when the component loads or the `slug` changes
+    window.scrollTo(0, 0);
   }, [slug]);
+
+  // Handle removing the hash from the URL on back navigation
+  const handleClose = () => {
+    navigate("/Home", { replace: true }); // Replace history state to avoid hash in URL
+  };
 
   if (!solution) {
     return <div className="text-center text-xl mt-16">Solution not found.</div>;
@@ -73,22 +71,17 @@ function SolutionDetail() {
       navigate(`/solutions/${solutions[solutionIndex + 1].slug}`);
     }
   };
-
-  const handleClose = () => {
-    // Save the current scroll position when closing
-    sessionStorage.setItem("scrollPosition", window.scrollY);
-    navigate("/Home");
-  };
-
   return (
+
     <div className="max-w-[800px] mx-auto mt-16 py-10 px-6 relative">
-      <button
-        onClick={handleClose}
+      <Link
+        to="/Home#solutions"
         className="absolute top-10 right-4 text-gray-500 hover:text-gray-800 text-4xl font-semibold"
         aria-label="Close"
+        onClick={handleClose}
       >
         ×
-      </button>
+      </Link>
       <h1 className="text-4xl font-bold mb-6">{solution.title}</h1>
       <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
         {solution.description}

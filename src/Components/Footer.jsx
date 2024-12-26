@@ -8,10 +8,6 @@ const SITEMAP = [
     links: ["Projects", "Services", "Company", "Careers"],
   },
   {
-    title: "Help Center",
-    links: ["Facebook", "Linkedin", "Whatsapp"],
-  },
-  {
     title: "Resources",
     links: ["Blog", "Newsletter", "Affiliate Program"],
   },
@@ -25,7 +21,7 @@ export function Footer() {
     <>
       <footer className="w-full bg-slate-900 text-white sm:text-center">
         <div className="max-w-[1120px] mx-auto w-full mt-16 px-8">
-          <div className="mx-auto grid w-full gap-9 py-12 sm:grid-cols-1 lg:grid-cols-5">
+          <div className="mx-auto grid w-full gap-9 py-12 sm:grid-cols-1 lg:grid-cols-4 text-center">
             {/* Left section: Company logo */}
             <div className="w-full flex justify-center items-center">
               <img
@@ -37,15 +33,15 @@ export function Footer() {
 
             {/* Contact Info Section */}
             <div className="w-full">
-              <h6 className="text-lg font-bold text-blue-gray-300">Contact Info</h6>
+              <h6 className="text-lg font-bold text-blue-gray-300 text-center">Contact Info</h6>
               <div className="m-3 w-full">
                 {/* Address */}
-                <p className="text-base text-blue-gray-300 m-3 text-left">
+                <p className="text-base text-blue-gray-300 m-3 text-center">
                   Dolphin Mall, Commercial Market, Mohammad Ali Jinnah Road,
                   Meher Colony, Okara, Punjab
                 </p>
                 {/* Phone */}
-                <p className="text-base text-blue-gray-300 m-3 text-left">
+                <p className="text-base text-blue-gray-300 m-3 text-center">
                   Phone: <br /> 0315-6429089
                 </p>
               </div>
@@ -80,7 +76,7 @@ export function Footer() {
             {/* Copyright Notice */}
             <p className="mb-4 text-center font-normal text-blue-gray-300 md:mb-0">
               &copy; {currentYear}{" "}
-              <a href="https://material-tailwind.com/" className="hover:underline">
+              <a href="https://www.linkedin.com/company/invextech" className="hover:underline">
                 Invextech
               </a>
               . All Rights Reserved.

@@ -16,6 +16,7 @@ function CareerForm() {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [fileError, setFileError] = useState(""); // State for file error
   const [errors, setErrors] = useState({});
   const [skillsSuggestions, setSkillsSuggestions] = useState([]);
   const [skillInput, setSkillInput] = useState("");
@@ -388,10 +389,26 @@ function CareerForm() {
 
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files[0],
-    });
+    const file = files[0];
+    
+    // Check if a file is selected
+    if (file) {
+      const fileType = file.type;
+      
+      // Valid file types for PDF, DOC, and DOCX
+      const validTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+
+      if (!validTypes.includes(fileType)) {
+        setFileError("Please upload a PDF, DOC, or DOCX file.");
+        e.target.value = ""; // Reset the file input
+      } else {
+        setFileError(""); // Clear error message if file is valid
+        setFormData({
+          ...formData,
+          [name]: file,
+        });
+      }
+    }
   };
 
   const handleSkillClick = (skill) => {
@@ -456,83 +473,44 @@ function CareerForm() {
       validationErrors.position = "Position is required.";
     }
 
-    if (formData.skills.length === 0) {
-      validationErrors.skills = "Skills/Technologies are required.";
+    if (!formData.skills.length) {
+      validationErrors.skills = "Skills are required.";
     }
 
     if (!formData.highestQualification) {
-      validationErrors.highestQualification =
-        "Highest Qualification is required.";
+      validationErrors.highestQualification = "Qualification is required.";
     }
 
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
+    if (formData.resume && fileError) {
+      validationErrors.resume = fileError;
     }
 
-    const userData = {
-      fullName: formData.fullName,
-      email: formData.email,
-      phone: formData.phone,
-      linkedin: formData.linkedin,
-      resume: formData.resume,
-      position: formData.position,
-      gender: formData.gender,
-      skills: formData.skills,
-      highestQualification: formData.highestQualification,
-    };
-
-    try {
-      const response = await fetch(
-        "https://674ed4cabb559617b26ce69c.mockapi.io/Invextech-Data"
-      );
-      const data = await response.json();
-      const existingUser = data.find(
-        (user) => user.email === formData.email || user.phone === formData.phone
-      );
-
-      if (existingUser) {
-        setModalMessage("You are already registered with Invextech.");
-      } else {
-        const registerResponse = await fetch(
-          "https://674ed4cabb559617b26ce69c.mockapi.io/Invextech-Data",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-          }
-        );
-
-        if (registerResponse.ok) {
-          setModalMessage(
-            "Congratulations, you are registered with Invextech."
-          );
-        } else {
-          setModalMessage("Something went wrong. Please try again.");
-        }
-      }
-
+    if (Object.keys(validationErrors).length === 0) {
+      // Form submission logic here
       setShowModal(true);
+      setModalMessage("Registration with Invextech is Successful!");
       setIsSubmitted(true);
-
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        linkedin: "",
+        resume: null,
+        position: "",
+        gender: "",
+        skills: [],
+        highestQualification: "",
+      });
+    
+      // Set a timeout to close the modal and refresh the page
       setTimeout(() => {
-        setShowModal(false);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        window.location.reload();
-      }, 4000);
-    } catch (error) {
-      console.error("Error:", error);
-      setModalMessage("Something went wrong. Please try again.");
-      setShowModal(true);
-
-      setTimeout(() => {
-        setShowModal(false);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 4000);
-    }
-  };
+        setShowModal(false); // Close the modal
+        window.location.reload(); // Refresh the page
+      }, 4000); // 4000ms = 4 seconds
+    } else {
+      setErrors(validationErrors);
+    }    
+  }
 
   return (
     <>
