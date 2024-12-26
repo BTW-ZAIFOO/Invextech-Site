@@ -11,21 +11,23 @@ function CareerForm() {
     cnic: null,
     position: "",
     gender: "",
-    skills: "",
+    skills: [],
     highestQualification: "",
   });
 
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showPositionSuggestions, setShowPositionSuggestions] = useState(false);
   const [errors, setErrors] = useState({});
-  const [skillsWordCount, setSkillsWordCount] = useState(50);
+  const [skillsSuggestions, setSkillsSuggestions] = useState([]);
+  const [skillInput, setSkillInput] = useState("");
 
-  const positionSuggestions = [
+  const positionOptions = [
     "Frontend Developer",
     "Backend Developer",
     "Full Stack Developer",
+    "Software Engineer",
+    "MERN Stack Developer",
     "Business Development Officer (BDO)",
     "WordPress Developer",
     "Graphic Designer",
@@ -36,20 +38,43 @@ function CareerForm() {
     "SEO (Search Engine Optimization)",
   ];
 
+  const skillsOptions = [
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Python",
+    "Java",
+    "C++",
+    "HTML",
+    "CSS",
+    "SQL",
+    "MongoDB",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "TypeScript",
+    "Angular",
+    "Vue.js",
+    "PHP",
+    "Ruby on Rails",
+    "Swift",
+    "Kotlin",
+  ];
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    if (name === "position") {
-      setShowPositionSuggestions(true);
-    }
-
     if (name === "skills") {
-      const wordCount = 50 - value.split(" ").filter(Boolean).length;
-      setSkillsWordCount(wordCount);
+      setSkillInput(value);
+      const filteredSuggestions = skillsOptions.filter((skill) =>
+        skill.toLowerCase().includes(value.toLowerCase())
+      );
+      setSkillsSuggestions(filteredSuggestions);
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
     }
 
     setErrors({
@@ -66,12 +91,22 @@ function CareerForm() {
     });
   };
 
-  const handlePositionClick = (position) => {
+  const handleSkillClick = (skill) => {
+    if (!formData.skills.includes(skill)) {
+      setFormData({
+        ...formData,
+        skills: [...formData.skills, skill],
+      });
+    }
+    setSkillInput("");
+    setSkillsSuggestions([]);
+  };
+
+  const handleSkillDelete = (skillToDelete) => {
     setFormData({
       ...formData,
-      position,
+      skills: formData.skills.filter((skill) => skill !== skillToDelete),
     });
-    setShowPositionSuggestions(false);
   };
 
   const handleSubmit = async (e) => {
@@ -101,11 +136,9 @@ function CareerForm() {
 
     if (!formData.position) {
       validationErrors.position = "Position is required.";
-    } else if (!positionSuggestions.includes(formData.position)) {
-      validationErrors.position = "Please select a valid position from the suggestions.";
     }
 
-    if (!formData.skills) {
+    if (formData.skills.length === 0) {
       validationErrors.skills = "Skills/Technologies are required.";
     }
 
@@ -331,37 +364,23 @@ function CareerForm() {
                     <label className="block text-gray-700 font-medium mb-2">
                       Position Applying For
                     </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        name="position"
-                        value={formData.position}
-                        onChange={handleChange}
-                        className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
-                        placeholder="Start typing to see suggestions"
-                        required
-                        disabled={isSubmitted}
-                      />
-                      {showPositionSuggestions && formData.position && (
-                        <ul className="absolute bg-white border border-gray-300 rounded-md shadow-md mt-2 max-h-40 overflow-y-auto z-10">
-                          {positionSuggestions
-                            .filter((pos) =>
-                              pos
-                                .toLowerCase()
-                                .includes(formData.position.toLowerCase())
-                            )
-                            .map((pos) => (
-                              <li
-                                key={pos}
-                                className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
-                                onClick={() => handlePositionClick(pos)}
-                              >
-                                {pos}
-                              </li>
-                            ))}
-                        </ul>
-                      )}
-                    </div>
+                    <select
+                      name="position"
+                      value={formData.position}
+                      onChange={handleChange}
+                      className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
+                      required
+                      disabled={isSubmitted}
+                    >
+                      <option value="" disabled>
+                        Select Position
+                      </option>
+                      {positionOptions.map((position) => (
+                        <option key={position} value={position}>
+                          {position}
+                        </option>
+                      ))}
+                    </select>
                     {errors.position && (
                       <p className="text-red-500 text-sm mt-1">
                         {errors.position}
@@ -402,16 +421,53 @@ function CareerForm() {
                   <label className="block text-gray-700 font-medium mb-2">
                     Skills/Technologies
                   </label>
-                  <textarea
+                  <input
+                    type="text"
                     name="skills"
-                    value={formData.skills}
+                    value={skillInput}
                     onChange={handleChange}
                     className="w-full border-gray-950 border-2 rounded-md shadow-md p-2"
                     placeholder="List your skills and technologies"
-                    rows="3"
-                    required
                     disabled={isSubmitted}
                   />
+                  {skillsSuggestions.length > 0 && (
+                    <ul className="absolute bg-white border border-gray-300 rounded-md shadow-md mt-2 max-h-40 overflow-y-auto z-10">
+                      {skillsSuggestions.map((skill) => (
+                        <li
+                          key={skill}
+                          className="px-4 py-2 hover:bg-gray-200 cursor-pointer flex justify-between items-center"
+                          onClick={() => handleSkillClick(skill)}
+                        >
+                          {skill}
+                          <button
+                            className="ml-2 text-red-500 hover:text-red-700"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSkillDelete(skill);
+                            }}
+                          >
+                            &times;
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="flex flex-wrap mt-2">
+                    {formData.skills.map((skill) => (
+                      <div
+                        key={skill}
+                        className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full flex items-center mr-2 mb-2"
+                      >
+                        {skill}
+                        <button
+                          className="ml-2 text-red-500 hover:text-red-700"
+                          onClick={() => handleSkillDelete(skill)}
+                        >
+                          &times;
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                   {errors.skills && (
                     <p className="text-red-500 text-sm mt-1">
                       {errors.skills}

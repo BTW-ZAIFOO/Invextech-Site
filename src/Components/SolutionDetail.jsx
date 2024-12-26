@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const solutions = [
@@ -44,6 +44,10 @@ function SolutionDetail() {
     (solution) => solution.slug.toLowerCase() === slug.toLowerCase()
   );
   const solution = solutions[solutionIndex];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!solution) {
     return <div className="text-center text-xl mt-16">Solution not found.</div>;
