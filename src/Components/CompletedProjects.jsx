@@ -7,10 +7,10 @@ const projects = [
   { slug: "RESEARCH COLLAB", image: assets.images, title: "RESEARCH COLLAB" },
   { slug: "ZAPIER AUTOMATION", image: assets.images_1, title: "ZAPIER AUTOMATION" },
   { slug: "ONU", image: assets.images_2, title: "ONU" },
-  { slug: "TELEGRAM BOT", image: assets.download, title: "TELEGRAM BOT" },
+  { slug: "TELEGRAM BOT", image: assets.development_img, title: "TELEGRAM BOT" },
   { slug: "WHATSAPP BOT", image: assets.images_4, title: "WHATSAPP BOT" },
   { slug: "OZ SOLUTIONS", image: assets.images_5, title: "OZ SOLUTIONS" },
-  { slug: "RANDOM", image: assets.images_4, title: "RANDOM" },
+  { slug: "RANDOM", image: assets.download, title: "RANDOM" },
 ];
 
 function CompletedProjects() {
