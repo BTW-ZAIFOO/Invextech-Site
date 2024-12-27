@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Popup from "./Popup";
 
 function CareerForm() {
   const [formData, setFormData] = useState({
@@ -13,8 +14,8 @@ function CareerForm() {
     highestQualification: "",
   });
 
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fileError, setFileError] = useState(""); // State for file error
   const [errors, setErrors] = useState({});
@@ -49,39 +50,25 @@ function CareerForm() {
     "SQL",
     "MongoDB",
     "AWS",
-    "Docker",
-    "Kubernetes",
     "Git",
     "TypeScript",
     "Angular",
     "Vue.js",
     "PHP",
-    "Ruby on Rails",
     "Swift",
     "Kotlin",
     "Golang",
-    "Django",
-    "Flask",
-    "Ruby",
-    "Scala",
-    "Perl",
-    "Rust",
-    "Laravel",
     "Express.js",
     "Next.js",
     "Sass",
     "Bootstrap",
     "Tailwind CSS",
     "GraphQL",
-    "Apollo",
-    "Jest",
     "Redux",
-    "Vuex",
     "Web3.js",
     "Blockchain",
     "Firebase",
     "Cloud Computing",
-    "MATLAB",
     "Android",
     "iOS",
     "WordPress",
@@ -90,272 +77,48 @@ function CareerForm() {
     "SEM",
     "Google Analytics",
     "Digital Marketing",
-    "Content Marketing",
-    "Agile",
-    "Scrum",
     "Project Management",
     "UX/UI Design",
     "Wireframing",
     "Figma",
     "Adobe XD",
-    "Sketch",
-    "InVision",
-    "Zeplin",
     "Photoshop",
-    "Illustrator",
-    "After Effects",
     "3D Modeling",
-    "Maya",
-    "Blender",
-    "Cinema 4D",
     "UI Prototyping",
-    "Video Editing",
-    "VFX",
-    "Game Development",
-    "AR/VR Development",
-    "Chatbots",
     "DevOps",
     "Automation",
-    "Penetration Testing",
-    "Ethical Hacking",
-    "Cybersecurity",
-    "Network Security",
-    "ITIL",
-    "VMware",
-    "Azure",
     "Google Cloud Platform",
-    "Salesforce",
-    "SAP",
-    "Oracle",
     "Big Data",
-    "Data Science",
     "Machine Learning",
     "Artificial Intelligence",
-    "Deep Learning",
-    "Natural Language Processing",
-    "Robotic Process Automation",
-    "Quantum Computing",
-    "IoT",
-    "Edge Computing",
-    "5G",
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "React.js",
-    "Vue.js",
-    "SASS",
-    "Webpack",
-    "Babel",
-    "JQuery",
-    "AJAX",
     "Responsive Design",
     "Cross-browser Compatibility",
     "Mobile-first Design",
     "CSS Grid",
     "Flexbox",
     "SVG",
-    "Canvas",
     "Progressive Web Apps",
-    "Service Workers",
-    "SEO for Frontend",
-    "Figma",
-    "Sketch",
-    "Tailwind CSS",
-    "Bootstrap",
-    "Node.js",
-    "Express.js",
-    "PHP",
-    "Java",
-    "Ruby on Rails",
-    "Python",
-    "Go",
-    "C#",
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "Redis",
-    "REST APIs",
-    "GraphQL",
     "OAuth",
     "JWT Authentication",
-    "Microservices Architecture",
-    "WebSocket",
-    "Docker",
-    "Kubernetes",
-    "AWS Lambda",
-    "Azure Functions",
-    "Serverless",
-    "CI/CD",
-    "Jenkins",
-    "Node.js",
-    "React.js",
-    "Express.js",
-    "MongoDB",
-    "SQL",
-    "AWS",
-    "Git",
-    "Docker",
-    "CI/CD",
-    "GraphQL",
-    "TypeScript",
-    "Jest",
-    "Redux",
-    "Web APIs",
-    "Algorithms & Data Structures",
-    "Design Patterns",
-    "System Design",
-    "Testing (Unit, Integration)",
-    "Continuous Integration",
-    "Version Control (Git)",
-    "Agile Methodologies",
-    "DevOps",
-    "Cloud Platforms (AWS, GCP, Azure)",
-    "Docker",
-    "Kubernetes",
-    "Linux",
-    "Networking Protocols",
-    "Microservices",
-    "Concurrency",
-    "MongoDB",
-    "Express.js",
-    "React.js",
-    "Node.js",
-    "JavaScript",
-    "TypeScript",
-    "JWT Authentication",
-    "GraphQL",
-    "Redux",
     "REST APIs",
-    "Docker",
-    "Git",
-    "Postman",
-    "Jest",
-    "Sales Strategy",
-    "Client Relations",
-    "Market Research",
     "Lead Generation",
-    "Negotiation",
-    "CRM Tools",
-    "Salesforce",
-    "Business Analysis",
-    "Revenue Forecasting",
     "B2B Sales",
-    "Partnership Development",
-    "Presentation Skills",
-    "Project Management",
-    "Networking",
-    "Communication Skills",
-    "PHP",
-    "WordPress",
+    "PostgreSQL",
     "MySQL",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "REST API",
-    "WooCommerce",
-    "SEO",
-    "Elementor",
-    "Theme Development",
-    "Plugin Development",
-    "WP-CLI",
-    "Git",
-    "Bootstrap",
-    "Tailwind CSS",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "Adobe InDesign",
-    "CorelDRAW",
-    "Sketch",
-    "Figma",
-    "Typography",
-    "UI/UX Design",
-    "Logo Design",
-    "Branding",
-    "Print Design",
-    "Packaging Design",
-    "Color Theory",
-    "Wireframing",
-    "Prototyping",
-    "Motion Graphics",
-    "After Effects",
-    "Lead Generation",
-    "B2B Lead Generation",
-    "CRM Software",
-    "LinkedIn Marketing",
-    "Cold Calling",
-    "Email Marketing",
-    "SEO",
-    "Google Ads",
-    "Market Research",
-    "Conversion Rate Optimization",
-    "Lead Scoring",
-    "Sales Funnel Optimization",
-    "Salesforce",
-    "Wireframing",
-    "Prototyping",
-    "User Research",
-    "Figma",
-    "Sketch",
-    "InVision",
-    "Adobe XD",
-    "UX/UI Design",
-    "Usability Testing",
-    "Interaction Design",
-    "Responsive Design",
-    "User Flows",
-    "Persona Development",
-    "Agile",
-    "Design Systems",
-    "Information Architecture",
-    "Project Management",
-    "Agile",
-    "Scrum",
-    "Kanban",
-    "Jira",
-    "Trello",
-    "Asana",
-    "Risk Management",
-    "Budget Management",
-    "Time Management",
-    "Stakeholder Management",
-    "Team Collaboration",
-    "Communication Skills",
-    "Leadership",
-    "Resource Allocation",
-    "Process Improvement",
-    "Android",
-    "iOS",
-    "React Native",
+    "Testing (Unit, Integration)",
+    "Version Control (Git)",
+    "Material Design",
     "Flutter",
-    "Swift",
-    "Kotlin",
-    "Xcode",
-    "Android Studio",
-    "Firebase",
+    "React Native",
     "App Store Optimization",
     "API Integration",
-    "UX/UI Design",
-    "MVVM",
-    "Object-Oriented Programming",
-    "JUnit",
-    "Test-Driven Development",
-    "Material Design",
-    "Figma",
-    "SEO Strategy",
-    "Google Analytics",
-    "Keyword Research",
-    "Backlink Building",
     "Technical SEO",
     "On-page SEO",
     "Off-page SEO",
     "Local SEO",
-    "SEO Tools (SEMrush, Ahrefs, Moz)",
-    "Google Search Console",
-    "Content Marketing",
-    "Link Building",
-    "SEO Audits",
-    "Meta Tags",
-    "Conversion Optimization",
+    "Team Collaboration",
+    "Prototyping",
+    "User Research",
   ];
 
   const qualificationOptions = [
@@ -390,13 +153,17 @@ function CareerForm() {
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const file = files[0];
-    
+
     // Check if a file is selected
     if (file) {
       const fileType = file.type;
-      
+
       // Valid file types for PDF, DOC, and DOCX
-      const validTypes = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+      const validTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
 
       if (!validTypes.includes(fileType)) {
         setFileError("Please upload a PDF, DOC, or DOCX file.");
@@ -486,9 +253,22 @@ function CareerForm() {
     }
 
     if (Object.keys(validationErrors).length === 0) {
+      // Log form data to console
+      console.log("Form Data:", {
+        ...formData,
+        resume: formData.resume
+          ? {
+              name: formData.resume.name,
+              type: formData.resume.type,
+            }
+          : null,
+      });
+
       // Form submission logic here
-      setShowModal(true);
-      setModalMessage("Registration with Invextech is Successful!");
+      setShowPopup(true);
+      setPopupMessage(
+        "Congratulations Your Registration with Invextech is Successful! You will get an email shortly.Thank You For Applying.😊🤩"
+      );
       setIsSubmitted(true);
       setFormData({
         fullName: "",
@@ -501,47 +281,17 @@ function CareerForm() {
         skills: [],
         highestQualification: "",
       });
-    
-      // Set a timeout to close the modal and refresh the page
-      setTimeout(() => {
-        setShowModal(false); // Close the modal
-        window.location.reload(); // Refresh the page
-      }, 4000); // 4000ms = 4 seconds
     } else {
       setErrors(validationErrors);
-    }    
-  }
+    }
+  };
 
   return (
     <>
-      {/* Notification Modal */}
-      {showModal && (
-        <div className="fixed top-4 right-4 z-50 p-4 max-w-sm w-full bg-sky-400 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform scale-100 opacity-100">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-800 font-medium text-lg">{modalMessage}</p>
-            <button
-              onClick={() => setShowModal(false)}
-              className="text-gray-600 hover:text-gray-800 focus:outline-none"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
+      {/* Popup */}
+      {showPopup && (
+        <Popup message={popupMessage} onClose={() => setShowPopup(false)} />
       )}
-
       <div className="max-w-[1120px] mx-auto mt-6 py-10 pb-32">
         <div className="p-6 my-8">
           <h2 className="text-center text-3xl md:text-4xl font-extralight text-black mb-6">
@@ -587,7 +337,6 @@ function CareerForm() {
                       </p>
                     )}
                   </div>
-
                   {/* Email */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -609,7 +358,6 @@ function CareerForm() {
                       </p>
                     )}
                   </div>
-
                   {/* Phone */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -631,7 +379,6 @@ function CareerForm() {
                       </p>
                     )}
                   </div>
-
                   {/* LinkedIn */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -648,7 +395,6 @@ function CareerForm() {
                     />
                   </div>
                 </div>
-
                 {/* Position */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -675,7 +421,6 @@ function CareerForm() {
                     </p>
                   )}
                 </div>
-
                 {/* Gender */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -695,7 +440,6 @@ function CareerForm() {
                     <option value="Other">Other</option>
                   </select>
                 </div>
-
                 {/* Qualification */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -722,7 +466,6 @@ function CareerForm() {
                     </p>
                   )}
                 </div>
-
                 {/* Skills */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -773,7 +516,6 @@ function CareerForm() {
                     ))}
                   </div>
                 </div>
-
                 {/* Resume */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -788,7 +530,6 @@ function CareerForm() {
                     accept=".pdf, .doc, .docx"
                   />
                 </div>
-
                 {/* Submit Button */}
                 <div className="flex justify-center">
                   <button
