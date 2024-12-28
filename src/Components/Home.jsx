@@ -234,46 +234,100 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Portfolio Section */}
+      {/* Client Testimonials Section */}
       <div className="max-w-[1120px] mx-auto mt-16 py-10 sm:px-6 lg:px-8">
         <div className="text-center items-center mb-12">
           <h2 className="text-center text-3xl md:text-4xl font-extralight text-black mb-4">
             <span className="text-sky-500 border-b-4 border-sky-500 font-extrabold">
-              PORTFOLIO
+              CLIENT TESTIMONIALS
             </span>
           </h2>
           <h3 className="text-slate-800 font-bold text-center items-center mb-6 mt-6 text-3xl md:text-3xl">
-            Multi-Vertical Mastery
+            What Our Clients Say
           </h3>
           <p className="text-center text-base md:text-xl font-normal text-gray-800">
-            Working confidently across diverse regulatory environments, we meet
-            business needs with engaging experiences in digital health, finance,
-            engineering, commerce, real estate, education and beyond.
+            See how we have helped businesses grow across various industries.
           </p>
         </div>
 
         {/* Centering the grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-6 text-center pb-8 mx-auto">
-          {/* PORTFOLIO CARD */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-8 text-center pb-8 mx-auto">
+          {/* CLIENT TESTIMONIAL CARD */}
           {[
-            assets.download,
-            assets.images,
-            assets.images_1,
-            assets.development_img,
-            assets.images_4,
-            assets.images_5,
-          ].map((image, index) => (
+            {
+              name: "John Doe",
+              testimonial:
+                "This company did an amazing job with our website. Highly recommend!",
+              role: "CEO, Company X",
+              rating: 5, // rating out of 5
+              image:
+                "https://ui-avatars.com/api/?name=John+Doe&background=random&color=fff", // Fake image URL
+            },
+            {
+              name: "Jane Smith",
+              testimonial:
+                "The team was professional and delivered beyond our expectations!",
+              role: "Marketing Director, Company Y",
+              rating: 4, // rating out of 5
+              image:
+                "https://ui-avatars.com/api/?name=Jane+Smith&background=random&color=fff", // Fake image URL
+            },
+            {
+              name: "Michael Lee",
+              testimonial:
+                "Outstanding service and great communication. Definitely working with them again!",
+              role: "Product Manager, Company Z",
+              rating: 4, // rating out of 5
+              image:
+                "https://ui-avatars.com/api/?name=Michael+Lee&background=random&color=fff", // Fake image URL
+            },
+          ].map((testimonial, index) => (
             <div
               key={index}
               className="flex flex-col items-center border-2 border-slate-300 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white"
             >
+              {/* Client Image (with fake image URL) */}
               <img
-                src={image}
-                alt={`port-${index + 1}`}
-                className="w-full h-auto max-h-[150px] object-contain transition-all duration-300 transform hover:scale-105"
+                src={testimonial.image}
+                alt={`${testimonial.name}'s Avatar`}
+                className="w-16 h-16 rounded-full mb-4"
               />
+              {/* Testimonial Text */}
+              <p className="text-lg font-medium text-gray-700 mb-2">
+                "{testimonial.testimonial}"
+              </p>
+              {/* Star Rating */}
+              <div className="flex mb-2">
+                {[...Array(5)].map((_, starIndex) => (
+                  <span
+                    key={starIndex}
+                    className={`text-xl ${
+                      starIndex < testimonial.rating
+                        ? "text-yellow-500"
+                        : "text-gray-300"
+                    }`}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              {/* Client Info */}
+              <p className="font-semibold text-gray-900">{testimonial.name}</p>
+              <p className="text-sm sm:text-base mb-2 text-blue-900">
+                {testimonial.role}
+              </p>
             </div>
           ))}
+        </div>
+
+        {/* Add New Testimonial Link */}
+        <div className="text-center mt-6">
+          <a
+            href="/add-testimonial" // This should link to the page where the testimonial form exists
+            className="text-lg font-semibold text-sky-500 hover:text-sky-700"
+          >
+            Add Your Testimonial
+          </a>
         </div>
       </div>
     </>
