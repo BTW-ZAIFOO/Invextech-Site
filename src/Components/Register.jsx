@@ -152,17 +152,6 @@ function CareerForm() {
     });
   };
 
-  const handlePhoneChange = (value) => {
-    setFormData({
-      ...formData,
-      phone: value,
-    });
-    setErrors({
-      ...errors,
-      phone: "",
-    });
-  };
-
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     const file = files[0];
@@ -266,34 +255,51 @@ function CareerForm() {
     }
 
     if (Object.keys(validationErrors).length === 0) {
-      // Log form data to console
-      console.log("Form Data:", {
-        ...formData,
-        resume: formData.resume
-          ? {
-              name: formData.resume.name,
-              type: formData.resume.type,
-            }
-          : null,
-      });
+      try {
+        const response = await fetch(
+          "https://hooks.zapier.com/hooks/catch/21068256/28zanvj/",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              fullName: formData.fullName,
+              email: formData.email,
+              phone: formData.phone,
+              linkedin: formData.linkedin,
+              position: formData.position,
+              gender: formData.gender,
+              skills: formData.skills.join(", "),
+              highestQualification: formData.highestQualification,
+              resume: formData.resume ? formData.resume.name : "",
+            }),
+          }
+        );
 
-      // Form submission logic here
-      setShowPopup(true);
-      setPopupMessage(
-        "Congratulations Your Registration with Invextech is Successful! You will get an email shortly.Thank You For Applying.😊🤩"
-      );
-      setIsSubmitted(true);
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        linkedin: "",
-        resume: null,
-        position: "",
-        gender: "",
-        skills: [],
-        highestQualification: "",
-      });
+        if (response.ok) {
+          setShowPopup(true);
+          setPopupMessage(
+            "Congratulations Your Registration with Invextech is Successful! You will get an email shortly. Thank You For Applying.😊🤩"
+          );
+          setIsSubmitted(true);
+          setFormData({
+            fullName: "",
+            email: "",
+            phone: "",
+            linkedin: "",
+            resume: null,
+            position: "",
+            gender: "",
+            skills: [],
+            highestQualification: "",
+          });
+        } else {
+          setShowPopup(true);
+          setPopupMessage("Something went wrong, please try again later.");
+        }
+      } catch (error) {
+        console.error("Error submitting form data:", error);
+        setShowPopup(true);
+        setPopupMessage("An error occurred, please try again later.");
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -380,18 +386,18 @@ function CareerForm() {
                       <PhoneInput
                         country={"pk"}
                         value={formData.phone}
-                        onChange={handlePhoneChange}
                         inputProps={{
                           name: "phone",
                           required: true,
                           autoFocus: true,
                           disabled: isSubmitted,
                         }}
-                        containerClass="w-full flex items-center"
-                        inputClass="w-full outline-none border-none"
-                        buttonClass="border-none bg-transparent"
+                        containerClass="flex items-center w-full bg-white"
+                        inputClass="w-full border-none outline-none focus:ring-0 text-black"
+                        buttonClass="border-none bg-transparent focus:outline-none"
                       />
                     </div>
+                    {/* Error message */}
                     {errors.phone && (
                       <p className="text-red-500 text-sm mt-1">
                         {errors.phone}
@@ -505,15 +511,19 @@ function CareerForm() {
                     <p className="text-red-500 text-sm mt-1">{errors.skills}</p>
                   )}
                   <div>
-                    {skillsSuggestions.slice(0, 4).map((skill) => (
-                      <div
-                        key={skill}
-                        onClick={() => handleSkillClick(skill)}
-                        className="cursor-pointer p-2 hover:bg-gray-200"
-                      >
-                        {skill}
-                      </div>
-                    ))}
+                    {skillsSuggestions.slice(0, 4).map(
+                      (
+                        skill // Limit the number of suggestions displayed
+                      ) => (
+                        <div
+                          key={skill}
+                          onClick={() => handleSkillClick(skill)}
+                          className="cursor-pointer p-2 hover:bg-gray-200"
+                        >
+                          {skill}
+                        </div>
+                      )
+                    )}
                   </div>
                   <div className="mt-3">
                     {formData.skills.map((skill) => (
