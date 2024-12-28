@@ -391,8 +391,7 @@ function CareerForm() {
                     <label className="block text-gray-700 font-medium mb-2">
                       Phone Number
                     </label>
-                    {/* Wrapper for border and focus effect */}
-                    <div className="w-full rounded-md shadow-md border-2 border-black focus-within:ring-2 focus-within:ring-blue-500">
+                    <div className="w-full rounded-md shadow-md border-2 border-black">
                       <PhoneInput
                         country={"pk"}
                         value={formData.phone}
