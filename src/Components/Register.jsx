@@ -23,6 +23,7 @@ function CareerForm() {
   const [errors, setErrors] = useState({});
   const [skillsSuggestions, setSkillsSuggestions] = useState([]);
   const [skillInput, setSkillInput] = useState("");
+  const [phone] = useState("");
 
   const positionOptions = [
     "Frontend Developer",
@@ -130,7 +131,13 @@ function CareerForm() {
     "Bachelor's Degree",
     "Master's Degree",
   ];
-
+  const handlePhoneChange = (value) => {
+    setFormData({
+      ...formData,
+      phone: value,
+    });
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "skills") {
@@ -144,6 +151,7 @@ function CareerForm() {
         ...formData,
         [name]: value,
       });
+      
     }
 
     setErrors({
@@ -303,6 +311,7 @@ function CareerForm() {
     } else {
       setErrors(validationErrors);
     }
+    
   };
 
   return (
@@ -382,10 +391,12 @@ function CareerForm() {
                     <label className="block text-gray-700 font-medium mb-2">
                       Phone Number
                     </label>
-                    <div className="w-full rounded-md shadow-md border-2 border-black p-1">
+                    {/* Wrapper for border and focus effect */}
+                    <div className="w-full rounded-md shadow-md border-2 border-black focus-within:ring-2 focus-within:ring-blue-500">
                       <PhoneInput
                         country={"pk"}
                         value={formData.phone}
+                        onChange={handlePhoneChange} // This now references the defined function
                         inputProps={{
                           name: "phone",
                           required: true,
