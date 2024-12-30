@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Modal from "./Modal";
 
 const Company = () => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
   const team = [
     {
       name: "Mr. Abu-Bakar Waqas",
@@ -31,8 +34,21 @@ const Company = () => {
     },
   ];
 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="max-w-[1120px] mx-auto mt-16 py-10">
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <h2 className="text-2xl text-center font-bold mb-4">Message from the CEO</h2>
+        <p className="text-gray-700 mb-4">
+          Welcome to our company! We are dedicated to driving innovation and growth. Our team is committed to delivering the best solutions to our clients. Thank you for visiting our website.
+        </p>
+        <p className="text-gray-700 font-bold text-center text-lg">
+          Mr. Abu-Bakar Waqas, CEO
+        </p>
+      </Modal>
       <div>
         <h2 className="text-center text-2xl md:text-4xl font-extralight text-gray-800 mb-6">
           <span className="text-sky-500 border-b-4 border-sky-500 font-extrabold">
@@ -51,13 +67,7 @@ const Company = () => {
           that solve business problems & drive measurable results.
         </p>
         <p className="text-center text-base md:text-xl font-normal text-gray-800 pb-7">
-          We nurture entrepreneurial spirit with corporate expertise &
-          experience, best in class tools & frameworks, Agile methods & talent
-          to create an ecosystem that enables both startups & established
-          companies to innovate efficiently with us. We continue to provide
-          strategic value in the days, weeks & years after the products launch.
-          By offering insight & candid counsel at every stage of the engagement,
-          we consider ourselves to be a partner and not just a vendor.
+          We nurture entrepreneurial spirit with corporate expertise & experience, best in class tools & frameworks, Agile methods & talent to create an ecosystem that enables both startups & established companies to innovate efficiently with us. We continue to provide strategic value in the days, weeks & years after the products launch. By offering insight & candid counsel at every stage of the engagement, we consider ourselves to be a partner and not just a vendor.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">

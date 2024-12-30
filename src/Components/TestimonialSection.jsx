@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TestimonialsSection = ({
   testimonials,
@@ -84,49 +85,62 @@ const TestimonialsSection = ({
       </div>
 
       {/* Modal */}
-      {selectedTestimonial && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
-            <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-              onClick={handleCloseModal}
+      <AnimatePresence>
+        {selectedTestimonial && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="absolute inset-0 bg-black opacity-80"></div>
+            <motion.div
+              className="relative bg-slate-100 p-10 rounded-lg shadow-lg max-w-lg w-full"
+              initial={{ x: "-100vw", rotate: 180 }}
+              animate={{ x: 0, rotate: 360 }}
+              exit={{ x: "-100vw", rotate: 180 }}
+              transition={{ type: "spring", stiffness: 150, damping: 60 }}
             >
-              <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
-            </button>
-            <div className="flex flex-col items-center">
-              <img
-                src={selectedTestimonial.image}
-                alt={`${selectedTestimonial.name}'s Avatar`}
-                className="w-16 h-16 rounded-full mb-4"
-              />
-              <p className="text-lg font-medium text-gray-700 mb-2">
-                "{selectedTestimonial.testimonial}"
-              </p>
-              <div className="flex mb-2">
-                {[...Array(5)].map((_, starIndex) => (
-                  <span
-                    key={starIndex}
-                    className={`text-xl ${
-                      starIndex < selectedTestimonial.rating
-                        ? "text-yellow-500"
-                        : "text-gray-300"
-                    }`}
-                  >
-                    ★
-                  </span>
-                ))}
+              <button
+                className="absolute top-5 right-5 text-gray-500 hover:text-gray-700"
+                onClick={handleCloseModal}
+              >
+                <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
+              </button>
+              <div className="flex flex-col items-center">
+                <img
+                  src={selectedTestimonial.image}
+                  alt={`${selectedTestimonial.name}'s Avatar`}
+                  className="w-16 h-16 rounded-full mb-4"
+                />
+                <p className="text-lg font-medium text-gray-700 mb-2">
+                  "{selectedTestimonial.testimonial}"
+                </p>
+                <div className="flex mb-2">
+                  {[...Array(5)].map((_, starIndex) => (
+                    <span
+                      key={starIndex}
+                      className={`text-xl ${
+                        starIndex < selectedTestimonial.rating
+                          ? "text-yellow-500"
+                          : "text-gray-300"
+                      }`}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <p className="font-semibold text-gray-900">
+                  {selectedTestimonial.name}
+                </p>
+                <p className="text-sm sm:text-base mb-2 text-blue-900">
+                  {selectedTestimonial.role}
+                </p>
               </div>
-              <p className="font-semibold text-gray-900">
-                {selectedTestimonial.name}
-              </p>
-              <p className="text-sm sm:text-base mb-2 text-blue-900">
-                {selectedTestimonial.role}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
