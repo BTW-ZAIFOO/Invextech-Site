@@ -8,7 +8,7 @@ import Services from "./Components/Services/Services.jsx";
 import Company from "./Components/Company/Company.jsx";
 import Register from "./Components/Registration/Register.jsx";
 import { Footer } from "./Components/Footer/Footer.jsx";
-import Navbar from "./Components/Navbar.jsx";
+import Navbar from "./Components/Navbar/Navbar.jsx";
 import ProjectDetail from "./Components/Projects/ProjectDetail.jsx";
 import SolutionDetail from "./Components/Home/Solutions/SolutionDetail.jsx";
 import Fixedcontent from "./Components/Fixedcontent.jsx";
