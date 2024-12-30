@@ -2,8 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import assets from "../../assets/assets";
 
 const Modal = ({ isOpen, onClose, children }) => {
+  const logoUrl = assets.logo_preview; 
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -22,11 +25,14 @@ const Modal = ({ isOpen, onClose, children }) => {
             transition={{ type: "tween", duration: 0.9, ease: "easeInOut" }}
           >
             <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-6 right-6 text-gray-500 hover:text-gray-700"
               onClick={onClose}
             >
               <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
             </button>
+            <div className="flex justify-center mb-4">
+              <img src={logoUrl} alt="Invextech Logo" className="h-16" />
+            </div>
             {children}
           </motion.div>
         </motion.div>

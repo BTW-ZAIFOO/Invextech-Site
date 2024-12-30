@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
+import React, { useState } from "react";
+import Modal from "../Home/Modal";
+import TeamSection from "./CompanyManagementSection";
 
 const Company = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -70,45 +71,7 @@ const Company = () => {
           We nurture entrepreneurial spirit with corporate expertise & experience, best in class tools & frameworks, Agile methods & talent to create an ecosystem that enables both startups & established companies to innovate efficiently with us. We continue to provide strategic value in the days, weeks & years after the products launch. By offering insight & candid counsel at every stage of the engagement, we consider ourselves to be a partner and not just a vendor.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-        {team.map((member, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow"
-          >
-            {member.image ? (
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-28 h-28 rounded-full mx-auto mb-6"
-              />
-            ) : (
-              <div className="w-28 h-28 bg-gray-300 rounded-full mx-auto mb-6 flex items-center justify-center text-gray-500 text-xl">
-                No Image
-              </div>
-            )}
-            <h3 className="text-2xl font-bold text-center text-gray-800">
-              {member.name}
-            </h3>
-            <p className="text-center font-semibold text-gray-500 text-lg mb-2">
-              {member.role}
-            </p>
-            <p className="text-center text-gray-600 text-base mb-4">
-              {member.bio}
-            </p>
-            <div className="flex justify-center space-x-4">
-              <a
-                href={member.socials.linkedin}
-                className="text-blue-500 hover:text-blue-700 text-xl"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+      <TeamSection team={team} />
     </div>
   );
 };

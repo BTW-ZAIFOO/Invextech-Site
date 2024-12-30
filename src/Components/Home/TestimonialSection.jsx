@@ -99,7 +99,7 @@ const TestimonialsSection = ({
               initial={{ x: "-100vw", rotate: 180 }}
               animate={{ x: 0, rotate: 360 }}
               exit={{ x: "-100vw", rotate: 180 }}
-              transition={{ type: "spring", stiffness: 150, damping: 60 }}
+              transition={{ type: "spring", stiffness: 100, damping: 70 }}
             >
               <button
                 className="absolute top-5 right-5 text-gray-500 hover:text-gray-700"

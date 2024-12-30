@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import HeaderSection from "../Components/HeaderSection";
-import ProjectsSection from "../Components/ProjectSection";
-import SolutionsSection from "../Components/SolutionSection";
-import TestimonialsSection from "../Components/TestimonialSection";
-import assets from "../assets/assets";
+import HeaderSection from "./HeaderSection";
+import ProjectsSection from "./ProjectSection";
+import SolutionsSection from "./Solutions/SolutionSection";
+import TestimonialsSection from "./TestimonialSection";
+import assets from "../../assets/assets";
 
 const solutions = [
   { slug: "midsize", image: assets.download, title: "MIDSIZE" },

@@ -2,15 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Importing components
-import Home from "./Components/Home.jsx";
-import CompletedProjects from "./Components/CompletedProjects.jsx";
-import Services from "./Components/Services.jsx";
-import Company from "./Components/Company.jsx";
-import Register from "./Components/Register.jsx";
-import { Footer } from "./Components/Footer.jsx";
+import Home from "./Components/Home/Home.jsx";
+import CompletedProjects from "./Components/Projects/CompletedProjects.jsx";
+import Services from "./Components/Services/Services.jsx";
+import Company from "./Components/Company/Company.jsx";
+import Register from "./Components/Registration/Register.jsx";
+import { Footer } from "./Components/Footer/Footer.jsx";
 import Navbar from "./Components/Navbar.jsx";
-import ProjectDetail from "./Components/ProjectDetail.jsx";
-import SolutionDetail from "./Components/SolutionDetail.jsx";
+import ProjectDetail from "./Components/Projects/ProjectDetail.jsx";
+import SolutionDetail from "./Components/Home/Solutions/SolutionDetail.jsx";
 import Fixedcontent from "./Components/Fixedcontent.jsx";
 
 // Main App component

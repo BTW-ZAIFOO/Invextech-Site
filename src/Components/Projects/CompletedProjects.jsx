@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import assets from "../assets/assets";
+import assets from "../../assets/assets";
 
 const projects = [
   { slug: "COOPER BUILD", image: assets.download, title: "COOPER BUILD" },
