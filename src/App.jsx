@@ -11,7 +11,7 @@ import { Footer } from "./Components/Footer/Footer.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import ProjectDetail from "./Components/Projects/ProjectDetail.jsx";
 import SolutionDetail from "./Components/Home/Solutions/SolutionDetail.jsx";
-import Fixedcontent from "./Components/Fixedcontent.jsx";
+import Fixedcontent from "./Components/FixedContent/Fixedcontent.jsx";
 
 // Main App component
 export const App = () => {
