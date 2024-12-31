@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../Home/Modal";
+import Modal from "./Modal";
 import TeamSection from "./CompanyManagementSection";
 
 const Company = () => {

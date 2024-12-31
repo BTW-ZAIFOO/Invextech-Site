@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import HeaderSection from "./HeaderSection";
-import ProjectsSection from "./ProjectSection";
+import HeaderSection from "./Header/HeaderSection";
+import ProjectsSection from "./Header/ProjectSection";
 import SolutionsSection from "./Solutions/SolutionSection";
-import TestimonialsSection from "./TestimonialSection";
+import TestimonialsSection from "./Testimonials/TestimonialSection";
 import assets from "../../assets/assets";
 
 const solutions = [
