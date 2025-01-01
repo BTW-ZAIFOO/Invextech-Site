@@ -59,7 +59,7 @@ function CompletedProjects() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-9 text-center pb-8 mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 text-center pb-8 mx-auto">
         {projects.map((project, index) => (
           <Link
             to={`/projects/${project.slug}`}

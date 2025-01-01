@@ -7,7 +7,7 @@ const ServiceItem = ({ image, altText, title, description, reverse }) => {
         <img
           src={image}
           alt={altText}
-          className="rounded-lg shadow-md w-full h-auto"
+          className="rounded-lg shadow-md w-full h-auto bg-white p-4"
         />
       </div>
       <div className="w-full md:w-1/2 text-gray-800 px-4">

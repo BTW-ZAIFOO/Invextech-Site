@@ -104,7 +104,7 @@ function Services() {
           altText="SEO Solutions"
           title="SEO Solutions"
           description="Boost your online presence with our customized SEO strategies. We handle everything from keyword research to on-page optimization, ensuring your website ranks higher on search engines"
-          reverse
+          reverse 
         />
       </motion.div>
     </>
