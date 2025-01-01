@@ -42,7 +42,10 @@ const Company = () => {
   return (
     <div className="max-w-[1120px] mx-auto mt-16 py-10">
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <h2 className="text-2xl text-center font-bold mb-4">Message from the CEO</h2>
+        <div className="flex justify-center items-center mb-2 gap-6">
+          <img src="https://ik.imagekit.io/HuzaifaKhan/Ceo_img.jpeg?updatedAt=1735196105527" className="w-20" />
+          <h2 className="text-2xl text-center font-bold mb-4">Message from the CEO</h2>
+        </div>
         <p className="text-gray-700 mb-4">
           Welcome to our company! We are dedicated to driving innovation and growth. Our team is committed to delivering the best solutions to our clients. Thank you for visiting our website.
         </p>

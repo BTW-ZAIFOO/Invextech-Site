@@ -64,7 +64,7 @@ function CompletedProjects() {
           <Link
             to={`/projects/${project.slug}`}
             key={index}
-            className="flex flex-col items-center border-2 border-slate-300 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white"
+            className="flex flex-col items-center border-2 border-slate-300 p-10 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white"
           >
             <img
               src={project.image}

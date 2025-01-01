@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const projects = [
   {
@@ -125,7 +126,12 @@ function ProjectDetail() {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto mt-16 py-10 px-6 relative">
+    <motion.div
+      className="max-w-[800px] mx-auto mt-16 py-10 px-6 relative"
+      initial={{ opacity: 0, x: -100 }}  // Start from above
+      animate={{ opacity: 1, x: 0 }}   // Animate to the normal position
+      transition={{ type: "spring", stiffness: 300, damping: 50 }}  // Bounce effect
+    >
       <button
         onClick={handleClose}
         className="absolute top-10 right-4 text-gray-500 hover:text-gray-800 text-4xl font-semibold"
@@ -154,7 +160,7 @@ function ProjectDetail() {
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
