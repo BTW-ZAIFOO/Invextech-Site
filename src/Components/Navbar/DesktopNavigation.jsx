@@ -1,49 +1,44 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const DesktopNavigation = () => {
   return (
     <ul className="hidden md:flex gap-8 lg:gap-7 text-black text-base lg:text-base font-semibold">
-      <NavLink
-        to="/Home"
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 border-b-4 border-sky-400"
-            : "hover:text-sky-500 hover:border-b-4 border-transparent hover:border-sky-400 transition-all duration-300"
-        }
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/CompletedProjects"
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 border-b-4 border-sky-400"
-            : "hover:text-sky-500 hover:border-b-4 border-transparent hover:border-sky-400 transition-all duration-300"
-        }
-      >
-        Projects
-      </NavLink>
-      <NavLink
-        to="/Services"
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 border-b-4 border-sky-400"
-            : "hover:text-sky-500 hover:border-b-4 border-transparent hover:border-sky-400 transition-all duration-300"
-        }
-      >
-        Services
-      </NavLink>
-      <NavLink
-        to="/Company"
-        className={({ isActive }) =>
-          isActive
-            ? "text-sky-500 border-b-4 border-sky-400"
-            : "hover:text-sky-500 hover:border-b-4 border-transparent hover:border-sky-400 transition-all duration-300"
-        }
-      >
-        Company
-      </NavLink>
+      {[
+        { path: "/Home", label: "Home" },
+        { path: "/CompletedProjects", label: "Projects" },
+        { path: "/Services", label: "Services" },
+        { path: "/Company", label: "Company" },
+      ].map((link) => (
+        <motion.li
+          key={link.path}
+          whileHover={{
+            scale: 1.1, // Slightly enlarge on hover
+            color: "#0ea5e9", // Sky blue on hover
+            borderBottomColor: "#0ea5e9", // Sky blue underline
+          }}
+          whileTap={{
+            scale: 0.9, // Shrink on press
+          }}
+          transition={{
+            duration: 0.2, // Smooth transition duration
+            ease: "easeInOut",
+          }}
+          className="border-b-4 border-transparent"
+        >
+          <NavLink
+            to={link.path}
+            className={({ isActive }) =>
+              isActive
+                ? "text-sky-500 border-sky-400"
+                : "hover:text-sky-500 hover:border-sky-400 transition-all duration-300"
+            }
+          >
+            {link.label}
+          </NavLink>
+        </motion.li>
+      ))}
     </ul>
   );
 };
