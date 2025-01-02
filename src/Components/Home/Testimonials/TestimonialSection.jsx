@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const TestimonialsSection = ({
   testimonials,
@@ -36,7 +37,7 @@ const TestimonialsSection = ({
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="flex flex-col items-center border-2 border-slate-300 p-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white cursor-pointer"
+              className="flex flex-col items-center border-2 border-slate-300 p-12 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:border-sky-500 bg-white cursor-pointer"
               onClick={() => handleCardClick(testimonial)}
             >
               {/* Client Image (with fake image URL) */}
@@ -75,12 +76,12 @@ const TestimonialsSection = ({
 
         {/* Add New Testimonial Link */}
         <div className="text-center mt-6">
-          <a
-            href="/add-testimonial" // This should link to the page where the testimonial form exists
+          <Link
+            to="/TestimonialForm.jsx" // This should link to the page where the testimonial form exists
             className="text-lg font-semibold text-sky-500 hover:text-sky-700"
           >
             Add Your Testimonial
-          </a>
+          </Link>
         </div>
       </div>
 
