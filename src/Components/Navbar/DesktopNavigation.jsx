@@ -17,13 +17,12 @@ const DesktopNavigation = () => {
             scale: 1.2, // Slightly enlarge on hover
             color: "#0ea5e9", // Sky blue on hover
             borderBottomColor: "#0ea5e9", // Sky blue underline
-            rotate: 360, 
           }}
           whileTap={{
-            scale: 1, 
+            scale: 1, // Shrink on press
           }}
           transition={{
-            duration: 1, 
+            duration: 0.4, // Smooth transition duration
             ease: "easeInOut",
           }}
           className="border-b-4 border-transparent"

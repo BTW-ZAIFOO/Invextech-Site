@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <div className="absolute inset-0 bg-black opacity-85"></div>
+          <div className="absolute inset-0 bg-black opacity-90"></div>
           <motion.div
             className="relative bg-white p-8 rounded-lg shadow-lg max-w-lg w-full"
             initial={{ y: "-100vh" }}
