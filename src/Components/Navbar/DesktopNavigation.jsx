@@ -14,15 +14,16 @@ const DesktopNavigation = () => {
         <motion.li
           key={link.path}
           whileHover={{
-            scale: 1.1, // Slightly enlarge on hover
+            scale: 1.2, // Slightly enlarge on hover
             color: "#0ea5e9", // Sky blue on hover
             borderBottomColor: "#0ea5e9", // Sky blue underline
+            rotate: 360, 
           }}
           whileTap={{
-            scale: 0.9, // Shrink on press
+            scale: 1, 
           }}
           transition={{
-            duration: 0.2, // Smooth transition duration
+            duration: 1, 
             ease: "easeInOut",
           }}
           className="border-b-4 border-transparent"

@@ -43,7 +43,6 @@ const Company = () => {
     <div className="max-w-[1120px] mx-auto mt-16 py-10">
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <div className="flex justify-center items-center mb-2 gap-6">
-          <img src="https://ik.imagekit.io/HuzaifaKhan/Ceo_img.jpeg?updatedAt=1735196105527" className="w-20" />
           <h2 className="text-2xl text-center font-bold mb-4">Message from the CEO</h2>
         </div>
         <p className="text-gray-700 mb-4">
