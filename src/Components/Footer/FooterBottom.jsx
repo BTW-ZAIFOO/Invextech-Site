@@ -22,22 +22,23 @@ const FooterBottom = () => {
         <a
           href="https://www.facebook.com/invextech/"
           className="opacity-80 transition-opacity hover:opacity-100"
-        >
-          <i className="fab fa-facebook text-blue-700 text-2xl"></i>
+          target="_blank"
+          rel="noopener noreferrer">
+          <i className="fab fa-facebook text-blue-700 text-3xl"></i>
         </a>
         <a
           href="https://www.linkedin.com/company/invextech"
           className="opacity-80 transition-opacity hover:opacity-100"
-        >
-          <i className="fab fa-linkedin text-sky-600 text-2xl"></i>
+          target="_blank"
+          rel="noopener noreferrer">
+          <i className="fab fa-linkedin text-sky-600 text-3xl"></i>
         </a>
         <a
           href="https://wa.me/+923156429089"
           target="_blank"
           rel="noopener noreferrer"
-          className="opacity-80 transition-opacity hover:opacity-100"
-        >
-          <i className="fab fa-whatsapp text-green-500 text-2xl"></i>
+          className="opacity-80 transition-opacity hover:opacity-100">
+          <i className="fab fa-whatsapp text-green-500 text-3xl"></i>
         </a>
       </div>
     </div>

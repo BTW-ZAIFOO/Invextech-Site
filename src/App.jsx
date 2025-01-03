@@ -12,11 +12,15 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import ProjectDetail from "./Components/Projects/ProjectDetail.jsx";
 import SolutionDetail from "./Components/Home/Solutions/SolutionDetail.jsx";
 import Fixedcontent from "./Components/FixedContent/Fixedcontent.jsx";
+import SplashScreen from "./SplashScreen.jsx"; // Import SplashScreen
 
 // Main App component
 export const App = () => {
   return (
     <Router>
+      {/* Splash Screen */}
+      <SplashScreen />
+      
       {/* Navbar is rendered at the top of all pages */}
       <Navbar />
       <div className="w-full bg-slate-100">
