@@ -62,6 +62,17 @@ const MobileMenu = ({ showMobileMenu, onClose }) => {
         >
           Company
         </NavLink>
+        <NavLink
+          to="/Gallery"
+          className={({ isActive }) =>
+            isActive
+              ? "text-sky-500 font-bold"
+              : "px-4 py-2 rounded-full hover:bg-gray-200 transition"
+          }
+          onClick={onClose}
+        >
+          Gallery
+        </NavLink>
       </ul>
     </div>
   );

@@ -12,6 +12,9 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import ProjectDetail from "./Components/Projects/ProjectDetail.jsx";
 import SolutionDetail from "./Components/Home/Solutions/SolutionDetail.jsx";
 import Fixedcontent from "./Components/FixedContent/Fixedcontent.jsx";
+import Gallery from "./Components/Gallery/Gallery.jsx";
+
+
 
 // Main App component
 export const App = () => {
@@ -29,6 +32,7 @@ export const App = () => {
           <Route path="/solutions/:slug" element={<SolutionDetail />} /> {/* Individual Solution Detail Page */}
           <Route path="/services" element={<Services />} /> {/* Services Page */}
           <Route path="/company" element={<Company />} /> {/* Company Page */}
+          <Route path="/Gallery" element={<Gallery />} /> {/* Gallery Page */}
           <Route path="/career" element={<Register />} /> {/* Career Registration Page */}
         </Routes>
         

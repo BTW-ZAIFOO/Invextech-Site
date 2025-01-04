@@ -10,6 +10,7 @@ const DesktopNavigation = () => {
         { path: "/CompletedProjects", label: "Projects" },
         { path: "/Services", label: "Services" },
         { path: "/Company", label: "Company" },
+        { path: "/Gallery", label: "Gallery" },
       ].map((link) => (
         <motion.li
           key={link.path}
