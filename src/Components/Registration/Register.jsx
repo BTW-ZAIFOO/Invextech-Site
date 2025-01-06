@@ -137,7 +137,7 @@ function CareerForm() {
       phone: value,
     });
   };
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "skills") {
@@ -151,7 +151,6 @@ function CareerForm() {
         ...formData,
         [name]: value,
       });
-      
     }
 
     setErrors({
@@ -311,7 +310,6 @@ function CareerForm() {
     } else {
       setErrors(validationErrors);
     }
-    
   };
 
   return (
@@ -364,7 +362,12 @@ function CareerForm() {
                         {errors.fullName}
                       </p>
                     )}
+                    {/* Helper message */}
+                    <p className="text-gray-500 text-sm mt-1">
+                      Please enter your full legal name.
+                    </p>
                   </div>
+
                   {/* Email */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -385,7 +388,13 @@ function CareerForm() {
                         {errors.email}
                       </p>
                     )}
+                    {/* Helper message */}
+                    <p className="text-gray-500 text-sm mt-1">
+                      We will use this email for communication regarding your
+                      application.
+                    </p>
                   </div>
+
                   {/* Phone */}
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
@@ -395,7 +404,7 @@ function CareerForm() {
                       <PhoneInput
                         country={"pk"}
                         value={formData.phone}
-                        onChange={handlePhoneChange} // This now references the defined function
+                        onChange={handlePhoneChange}
                         inputProps={{
                           name: "phone",
                           required: true,
@@ -407,12 +416,16 @@ function CareerForm() {
                         buttonClass="border-none bg-transparent focus:outline-none"
                       />
                     </div>
-                    {/* Error message */}
                     {errors.phone && (
                       <p className="text-red-500 text-sm mt-1">
                         {errors.phone}
                       </p>
                     )}
+                    {/* Helper message */}
+                    <p className="text-gray-500 text-sm mt-1">
+                      Enter a valid phone number for follow-up calls or
+                      messages.
+                    </p>
                   </div>
 
                   {/* LinkedIn */}
@@ -429,8 +442,14 @@ function CareerForm() {
                       placeholder="Enter your LinkedIn profile link"
                       disabled={isSubmitted}
                     />
+                    {/* Helper message */}
+                    <p className="text-gray-500 text-sm mt-1">
+                      Optional: Provide a link to your LinkedIn profile for
+                      additional details.
+                    </p>
                   </div>
                 </div>
+
                 {/* Position */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -456,7 +475,12 @@ function CareerForm() {
                       {errors.position}
                     </p>
                   )}
+                  {/* Helper message */}
+                  <p className="text-gray-500 text-sm mt-1">
+                    Select the position you're applying for.
+                  </p>
                 </div>
+
                 {/* Gender */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -475,7 +499,12 @@ function CareerForm() {
                     <option value="Female">Female</option>
                     <option value="Other">Other</option>
                   </select>
+                  {/* Helper message */}
+                  <p className="text-gray-500 text-sm mt-1">
+                    Select your gender for demographic purposes.
+                  </p>
                 </div>
+
                 {/* Qualification */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -501,7 +530,12 @@ function CareerForm() {
                       {errors.highestQualification}
                     </p>
                   )}
+                  {/* Helper message */}
+                  <p className="text-gray-500 text-sm mt-1">
+                    Select the highest qualification you've completed.
+                  </p>
                 </div>
+
                 {/* Skills */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -521,19 +555,15 @@ function CareerForm() {
                     <p className="text-red-500 text-sm mt-1">{errors.skills}</p>
                   )}
                   <div>
-                    {skillsSuggestions.slice(0, 4).map(
-                      (
-                        skill // Limit the number of suggestions displayed
-                      ) => (
-                        <div
-                          key={skill}
-                          onClick={() => handleSkillClick(skill)}
-                          className="cursor-pointer p-2 hover:bg-gray-200"
-                        >
-                          {skill}
-                        </div>
-                      )
-                    )}
+                    {skillsSuggestions.slice(0, 4).map((skill) => (
+                      <div
+                        key={skill}
+                        onClick={() => handleSkillClick(skill)}
+                        className="cursor-pointer p-2 hover:bg-gray-200"
+                      >
+                        {skill}
+                      </div>
+                    ))}
                   </div>
                   <div className="mt-3">
                     {formData.skills.map((skill) => (
@@ -551,7 +581,12 @@ function CareerForm() {
                       </span>
                     ))}
                   </div>
+                  {/* Helper message */}
+                  <p className="text-gray-500 text-sm mt-1">
+                    Add skills/technologies you're proficient in.
+                  </p>
                 </div>
+
                 {/* Resume */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -565,7 +600,12 @@ function CareerForm() {
                     disabled={isSubmitted}
                     accept=".pdf, .doc, .docx"
                   />
+                  {/* Helper message */}
+                  <p className="text-gray-500 text-sm mt-1">
+                    Upload your resume in PDF or Word format.
+                  </p>
                 </div>
+
                 {/* Submit Button */}
                 <div className="flex justify-center">
                   <button

@@ -62,7 +62,7 @@ const MobileMenu = ({ showMobileMenu, onClose }) => {
         >
           Company
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/Gallery"
           className={({ isActive }) =>
             isActive
@@ -72,7 +72,7 @@ const MobileMenu = ({ showMobileMenu, onClose }) => {
           onClick={onClose}
         >
           Gallery
-        </NavLink>
+        </NavLink> */}
       </ul>
     </div>
   );

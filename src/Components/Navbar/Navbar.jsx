@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import NavbarLogo from "./NavbarLogo";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenuIcon from "./MobileMenuIcon";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "./MobileMenu.jsx";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
