@@ -12,7 +12,7 @@ const ChatWindow = ({
   onClose,
 }) => {
   return (
-    <div className="fixed bottom-5 right-5 w-80 sm:w-96 md:w-[380px] bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl z-50 border-none transition-transform transform hover:scale-105 duration-300">
+    <div className="fixed bottom-5 right-5 w-80 sm:w-80 md:w-[380px] bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl z-50 border-none transition-transform transform hover:scale-105 duration-300">
       <div className="relative flex flex-col h-auto p-5 text-slate-900">
         {/* Header Section */}
         <div className="flex items-center justify-between pb-4 border-b border-white/30">
