@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Popup from "./Popup";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Chatbot from "../ChatBot/Chatbot";
 
 function CareerForm() {
   const [formData, setFormData] = useState({
@@ -137,7 +138,7 @@ function CareerForm() {
       phone: value,
     });
   };
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "skills") {
@@ -151,7 +152,6 @@ function CareerForm() {
         ...formData,
         [name]: value,
       });
-      
     }
 
     setErrors({
@@ -311,7 +311,6 @@ function CareerForm() {
     } else {
       setErrors(validationErrors);
     }
-    
   };
 
   return (
@@ -580,6 +579,9 @@ function CareerForm() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Chatbot />
       </div>
     </>
   );

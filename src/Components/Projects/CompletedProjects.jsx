@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import assets from "../../assets/assets";
+import Chatbot from "../ChatBot/Chatbot";
 
 const projects = [
   { slug: "COOPER BUILD", image: assets.download, title: "COOPER BUILD" },
@@ -74,6 +75,9 @@ function CompletedProjects() {
             <h2 className="font-bold text-sm mt-4 text-center">{project.title}</h2>
           </Link>
         ))}
+        <div>
+        <Chatbot/>
+        </div>
       </div>
     </div>
   );

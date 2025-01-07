@@ -4,6 +4,7 @@ import ProjectsSection from "./Header/ProjectSection";
 import SolutionsSection from "./Solutions/SolutionSection";
 import TestimonialsSection from "./Testimonials/TestimonialSection";
 import assets from "../../assets/assets";
+import Chatbot from "..//ChatBot/Chatbot.jsx"; // Import Chatbot component
 
 const solutions = [
   { slug: "midsize", image: assets.download, title: "MIDSIZE" },
@@ -110,6 +111,7 @@ const Home = () => {
         handleCardClick={handleCardClick}
         handleCloseModal={handleCloseModal}
       />
+      <Chatbot /> {/* Add Chatbot to the page */}
     </>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import assets from "../../assets/assets";
 import ServiceItem from "./ServiceItem";
+import Chatbot from "../ChatBot/Chatbot";
 
 function Services() {
   const bounceInVariants = {
@@ -105,6 +106,9 @@ function Services() {
             />
           </motion.div>
         ))}
+        <div>
+          <Chatbot />
+        </div>
       </div>
     </>
   );

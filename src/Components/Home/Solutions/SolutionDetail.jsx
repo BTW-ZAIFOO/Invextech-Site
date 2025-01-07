@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
+import Chatbot from "../../ChatBot/Chatbot";
 
 const solutions = [
   {
@@ -102,6 +103,7 @@ function SolutionDetail() {
             Next
           </button>
         )}
+        <Chatbot/>
       </div>
     </div>
   );

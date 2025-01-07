@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"; // Import Framer Motion
+import Chatbot from "../ChatBot/Chatbot";
+import { div } from "framer-motion/client";
 
 const projects = [
   {
@@ -126,41 +128,48 @@ function ProjectDetail() {
   };
 
   return (
-    <motion.div
-      className="max-w-[800px] mx-auto mt-16 py-10 px-6 relative"
-      initial={{ opacity: 0, x: -100 }}  // Start from above
-      animate={{ opacity: 1, x: 0 }}   // Animate to the normal position
-      transition={{ type: "spring", stiffness: 300, damping: 50 }}  // Bounce effect
-    >
-      <button
-        onClick={handleClose}
-        className="absolute top-10 right-4 text-gray-500 hover:text-gray-800 text-4xl font-semibold"
-        aria-label="Close"
-      >
-        ×
-      </button>
-      <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
-      <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-        {project.description}
-      </p>
-      <div className="flex justify-between mt-8">
-        <button
-          onClick={handleBack}
-          className="px-7 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition"
-          disabled={projectIndex === 0}
+    <>
+      <div>
+        <motion.div
+          className="max-w-[800px] mx-auto mt-16 py-10 px-6 relative"
+          initial={{ opacity: 0, x: -100 }} // Start from above
+          animate={{ opacity: 1, x: 0 }} // Animate to the normal position
+          transition={{ type: "spring", stiffness: 300, damping: 50 }} // Bounce effect
         >
-          Back
-        </button>
-        {projectIndex < projects.length - 1 && (
           <button
-            onClick={handleNext}
-            className="px-7 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition"
+            onClick={handleClose}
+            className="absolute top-10 right-4 text-gray-500 hover:text-gray-800 text-4xl font-semibold"
+            aria-label="Close"
           >
-            Next
+            ×
           </button>
-        )}
+          <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
+          <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+            {project.description}
+          </p>
+          <div className="flex justify-between mt-8">
+            <button
+              onClick={handleBack}
+              className="px-7 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition"
+              disabled={projectIndex === 0}
+            >
+              Back
+            </button>
+            {projectIndex < projects.length - 1 && (
+              <button
+                onClick={handleNext}
+                className="px-7 py-2 bg-sky-500 text-white rounded hover:bg-sky-600 transition"
+              >
+                Next
+              </button>
+            )}
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
+      <div>
+        <Chatbot />
+      </div>
+    </>
   );
 }
 
